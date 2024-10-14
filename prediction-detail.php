@@ -103,39 +103,25 @@ $result_predictions = mysqli_query($con, $query_predictions);
             <section class="col-content">
                 <?php while ($row_data=mysqli_fetch_array($result_predictions)){
                     $predic_numbers = json_decode($row_data['predic_numbers'],1);
-
                     $btns_style = 'background-color:#ddd;color:#666';
                     if($row_data['score'] == 'Verde'){
                         $btns_style = '';
                     }
                     ?>
-                    <div class="game-block past">
-                        <div class="game-info">
-                            <div class="game-logo">
-                                <img src="<?=$site_url?>/images/cat_images/<?=$category_info['image']?>" alt="<?=$category_info['name']?>">
-                            </div>
-                            <div class="game-details">
-                                <a class="game-title" href="#">
-                                    <span class="fas fa-chart-bar"> <?=$category_info['name']?></span>
-                                </a>
-                                <div class="game-scores ball-mode">
-                                    <?php foreach ($predic_numbers as $predic_number){ ?>
-                                        <span class="score" style="<?=$btns_style?>"><?=$predic_number?></span>
-                                    <?php } ?>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="game-footer">
+                    <div class="game-block past"><div class="game-info"><div class="top-section"><div class="inner-top">
+                                    <div class="game-logo"><img src="<?=$site_url?>/images/cat_images/<?=$category_info['image']?>" alt="<?=$category_info['name']?>" loading="lazy"></div>
+                                    <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug']).'/predicciones'?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;">Predicciones <?=$category_info['name']?></a><div class="clear mb20"></div><div class="game-scores ball-mode">
+                                            <?php foreach ($predic_numbers as $predic_number){ ?>
+                                                <span class="score" style="<?=$btns_style?>"><?=$predic_number?></span>
+                                            <?php } ?>
+                                            </span></div></div></div></div>
+                            <div class="clearfix"></div><div class="game-footer">
                                 <!--<span class="session-badge"><?/*=$row_data['draw_number']*/?></span>-->
-                                <a href="<?=setUrl($category_info['slug']).'/predicciones/'.urlDate($row_data['date'])?>"><span class="session-date session-badge"><?=_date($row_data['date'])?></span></a>
-                                <a href="#"><span class="home-comment session-badge"><i class="fab fa-google-play"></i> Playstore</span></a>
-                            </div>
-                        </div>
-
-                    </div>
+                                <a href="<?=setUrl($category_info['slug']).'/predicciones/'.urlDate($row_data['date'])?>"><span class="session-badge"><?=_date($row_data['date'])?></span></a>
+                                <a href="<?=setUrl($category_info['slug']).'/numeros-calientes'?>"><span class="session-date session-badge">Números Calientes</span></a>
+                                <a href="<?=setUrl($category_info['slug']).'/numeros-frios'?>"><span class="home-comment session-badge">Números Fríos</span></a>
+                            </div></div></div>
                 <?php } ?>
-
                 <div class="pagination">
                     <?php
                     $pagLink = '';
