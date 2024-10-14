@@ -1,0 +1,54 @@
+[31-Jan-2024 12:23:50 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 4
+[31-Jan-2024 12:30:58 America/Chicago] PHP Warning:  Undefined array key "page_name" in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 4
+[31-Jan-2024 12:30:58 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:30:58 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:33:40 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:33:40 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:34:08 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:34:08 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:21 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:21 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:28 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:28 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:29 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:29 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:31 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:52 America/Chicago] PHP Warning:  Undefined variable $con in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:35:52 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:5
+Stack trace:
+#0 /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php(5): mysqli_query(NULL, 'Select * FROM c...')
+#1 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 5
+[31-Jan-2024 12:42:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function cleanSlash() in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php:4
+Stack trace:
+#0 {main}
+  thrown in /home1/vkurk/resultadodeltrisdehoy.com/includes/scripts.php on line 4

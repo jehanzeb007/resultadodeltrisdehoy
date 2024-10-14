@@ -1,0 +1,206 @@
+.ad-container,
+.number_not_found,
+.numeros-gr-esc,
+.pagination {
+    text-align: center;
+}
+body,
+html {
+    height: 100%;
+}
+.wrap {
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+.col-top-ad .ad-container {
+    margin-top: 20px !important;
+}
+.ad-container.top-ad-container {
+    margin-bottom: 0 !important;
+    margin-top: 10px !important;
+}
+.submenu {
+    position: absolute;
+    min-width: auto;
+    display: none;
+    padding-left: 0;
+    background: linear-gradient(to bottom, #155902 0, #103505 100%);
+}
+.submenu li {
+    float: none !important;
+    display: block !important;
+    margin: 5px;
+    border-radius: 0;
+}
+.menu li:hover .submenu {
+    display: block;
+}
+@media (max-width: 554px) {
+    .bt_comprobar_tris{
+        margin-top: 15px;
+    }
+    .game-scores{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 768px) {
+    ul ul {
+        position: static;
+        background: #e3e3e3;
+    }
+}
+@media (min-width: 992px) {
+    .mobile-display {
+        display: none;
+    }
+    .desktop-display {
+        display: block;
+    }
+}
+@media (max-width: 992px) {
+    .mobile-description,
+    .mobile-display {
+        display: block;
+    }
+    .desktop-description,
+    .desktop-display {
+        display: none;
+    }
+}
+@media (min-width: 992px) {
+    .mobile-description {
+        display: none;
+    }
+    .desktop-description {
+        display: block;
+    }
+}
+.game-logo img {
+    max-width: 100%;
+}
+.smartbanner {
+    position: fixed !important;
+}
+.smartbanner-show {
+    margin-top: 90px !important;
+}
+.smartbanner-show header {
+    top: 80px;
+}
+.smartbanner-show .sport-ticker-navigation {
+    top: 130px;
+}
+h1:first-child,
+h2:first-child {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.game-block .session-badge {
+    margin: 0 2px;
+}
+.game-block:not(.past) .game-scores.ball-mode .score {
+    background: #52b231;
+    background: -moz-linear-gradient(-45deg, #52b231 0, #52b231 50%, #1d8c10 51%, #1d8c10 100%);
+    background: -webkit-linear-gradient(-45deg, #52b231 0, #52b231 50%, #1d8c10 51%, #1d8c10 100%);
+    background: linear-gradient(135deg, #52b231 0, #52b231 50%, #1d8c10 51%, #1d8c10 100%);
+    text-shadow: 0 0 5px #fff;
+}
+.live-date-chooser {
+    color: #fff;
+    text-align: center;
+}
+.live-date-chooser a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 5px 0;
+    display: inline-block;
+}
+.live-date-chooser a.active {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+}
+@media (max-width: 992px) {
+    .live-date-chooser a {
+        display: block;
+    }
+}
+@media (min-width: 993px) {
+    .live-date-chooser a:not(:last-child) {
+        border-right: 2px solid #fff;
+    }
+}
+.col-content .game-block.live:first-child {
+    border-top: 1px solid #e0e0e0;
+}
+.text-success {
+    color: #28a745 !important;
+}
+.pagination {
+    margin-top: 20px;
+}
+.pagination a {
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #ddd;
+    margin: 4px;
+}
+.pagination a.active {
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 5px;
+}
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+.bt_comprobar_tris,
+.input-tris {
+    border: 1px solid #0a7f17;
+    height: 44px;
+    font-size: 15px;
+}
+.numeros-gr-esc {
+    font-size: 40px;
+}
+.input-tris {
+    width: 60px;
+    padding: 0 1px 0 22px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 28px;
+}
+.bt_comprobar_tris {
+    padding: 0 16px;
+    margin-left: 20px;
+    background-color: #0a7f17;
+    cursor: pointer;
+}
+.number_found {
+    padding: 11px;
+    font-size: 15px;
+}
+.number_not_found {
+    padding: 19px;
+    font-size: 23px;
+    font-weight: 700;
+}
+.circle-plicador {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.plicador-text {
+    line-height: 1;
+    font-size: 10px;
+    margin-top: 12px;
+}

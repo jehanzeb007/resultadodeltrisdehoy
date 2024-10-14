@@ -1,0 +1,10 @@
+.center-block,.container,.container-fluid{margin-left:auto;margin-right:auto}@-ms-viewport{width:device-width}.container{padding-left:10px;padding-right:10px}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.container-fluid{padding-left:15px;padding-right:15px}.clearfix,.clearfix:after,.clearfix:before,.container-fluid:after,.container-fluid:before,.container:after,.container:before,.row:after,.row:before{content:" ";display:table}.clearfix:after,.container-fluid:after,.container:after,.row:after{clear:both}.center-block{display:block}.pull-right{float:right!important}.pull-left{float:left!important}.text-right{text-align:right}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.mt-3{margin-top:15px}
+.clear {
+    clear: both;
+    line-height: 0px;
+    margin: 0;
+    padding: 0;
+}
+.mb20 {
+    margin-bottom: 20px !important;
+}
