@@ -76,48 +76,29 @@ $result_results = mysqli_query($con, $query_results);
             <section class="col-content">
                 <?php while ($row_data=mysqli_fetch_array($result_results)){
                     $result_numbers = json_decode($row_data['result_numbers'],1);
-                    $category_info = $categories[$row_data['cat_id']];
+                    //$category_info = $categories[$row_data['cat_id']];
                     ?>
                     <div class="game-block past">
-                        <div class="game-info">
-                            <div class="game-logo">
-                                <img src="<?=$site_url?>/images/cat_images/<?=$category_info['image']?>" alt="<?=$category_info['name']?>">
-                            </div>
-                            <div class="game-details">
-                                <a class="game-title" href="#">
-                                    <a class="game-title">
-                                        <span class="fas fa-chart-bar"> <?=$category_info['name']?></span>
-                                    </a>
-                                </a>
-                                <div class="game-scores ball-mode">
-                                    <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
-                                        <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>
-                                    <?php } ?>
-                                    </span>
-                                    <?php if($row_data['result_multiplier'] == 'SI'){?>
-                                        <div class="circle-plicador" style="background: darkblue">
-                                            <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 15px;" class="fa fa-check"></i></div>
-                                        </div>
-                                    <?php } ?>
-                                    <?php if($row_data['result_multiplier'] == 'NO'){?>
-                                        <div class="circle-plicador" style="background: red">
-                                            <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 15px;" class="fa fa-times"></i></div>
-                                        </div>
-                                    <?php } ?>
-                                    <?php /*if($row_data['score'] != ''){*/?><!--
-                                        <span class="score special3"><?/*=$row_data['score']*/?></span>
+                        <div class="game-info"><div class="top-section"><div class="inner-top"><div class="game-logo">
+                                        <a href="<?=setUrl($categories[$row_data['cat_id']]['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a></div>
+                                    <div class="content"><a class="game-title" href="<?=setUrl($categories[$row_data['cat_id']]['slug'])?>" style="border: 1px solid #005B8A; padding: 3px; border-radius: 10px;"> Resultado <?=$categories[$row_data['cat_id']]['name']?></a>
+                                        <!--<span class="date"> <?/*=_date($row_data['result_date'])*/?></span>--></div></div>
+                                <div class="clear mb20"></div><div class="game-details"><div class="game-scores ball-mode">
+                                        <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
+                                            <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>
+                                        <?php } ?>
+                                        </span><?php if($row_data['result_multiplier'] == 'SI'){?>
+                                            <div class="circle-plicador" style="background: darkblue">
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-check"></i></div></div>
+                                        <?php } ?>
+                                        <?php if($row_data['result_multiplier'] == 'NO'){?>
+                                            <div class="circle-plicador" style="background: #dc3545;">
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-times"></i></div></div>
+                                        <?php } ?>
+                                        <?php /*if($row_data['score'] != ''){*/?><!--
+<span class="score special3"><?/*=$row_data['score']*/?></span>
                                     --><?php /*} */?>
-                                    <!--<i class="fa fa-check text-success"></i>-->
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="game-footer">
-                                <span class="session-badge">#<?=$row_data['result_code']?></span>
-                                <span class="session-date session-badge"><?=_date($row_data['result_date'])?></span>
-                            </div>
-                        </div>
-
-                    </div>
+                                    </div></div></div></div></div>
                 <?php } ?>
                 <div class="pagination">
                     <?php
