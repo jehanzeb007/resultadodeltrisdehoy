@@ -50,7 +50,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 
         <div class="row content-block dark">
             <div class="date-chooser flex-grow-1">
-                <h2><span><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; Tris Selecciones rápidas</span></h2>
+                <h1><span><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; Numero Ganador Del Tris De Hoy</span></h1>
             </div>
         </div>
         <div class="row content-block" style="background:#ffe1e0;">

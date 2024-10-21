@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c381fdae-863c-43ff-95f6-429d7af14afa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/theme1.css" afterPath="$PROJECT_DIR$/css/theme1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prediction-detail.php" afterPath="$PROJECT_DIR$/prediction-detail.php" />
-    </list>
+    <list default="true" id="c381fdae-863c-43ff-95f6-429d7af14afa" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -504,12 +499,12 @@
       <workItem from="1728592151615" duration="5115000" />
       <workItem from="1728645360927" duration="617000" />
       <workItem from="1728683943712" duration="2629000" />
-      <workItem from="1728918854046" duration="403000" />
+      <workItem from="1728918854046" duration="612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268682000" />
+    <option name="totallyTimeSpent" value="268891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1048" extended-state="6" />

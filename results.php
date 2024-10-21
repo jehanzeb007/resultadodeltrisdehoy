@@ -54,7 +54,6 @@ $result_results = mysqli_query($con, $query_results);
 $query_predictions = "Select * From predictions where cat_id = '".$category_info['id']."' order by date desc limit 5";
 $result_predictions = mysqli_query($con, $query_predictions);
 
-/*Hot Cold Numbers Start*/
 $date_30_days_ago = date('Y-m-d',strtotime('-30 days'));
 
 $query_results_all = "Select * From tbl_loterianacional where cat_id = '".$category_info['id']."' and result_date >= '".$date_30_days_ago."' order by result_date asc";
@@ -114,33 +113,8 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
 <div class="wrap">
 
     <?php include 'includes/nav.php'; ?>
-
-    <div class="container">
-        <div class="row">
-            <div class="bcca-breadcrumb">
-                <div class="bcca-breadcrumb-item"><?=$category_info['name']?></div>
-                <div class="bcca-breadcrumb-item"><a href="<?=$site_url?>"><i class="fa fa-home"></i></a></div>
-            </div>
-        </div>
-        <div class="row content-block">
-            <section class="col-12">
-                <div class="clear mb20"></div>
-                <div class="text-heading">
-                    <h1><?=$page_title?></h1>
-                    <?php if(!empty($hasDate)){?>
-                        <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',_date($REQUEST_URI[2]),_translate('result-post-head-text')))?></p>
-                    <?php }else {?>
-                    <?=_cat_translate('results-heading-text',$category_info['id'])?>
-                    <?php }?>
-                </div>
-            </section>
-
-        </div>
-        <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-                <h2><?=_cat_translate('results',$category_info['id'])?></h2>
-            </div>
-        </div>
+        <div class="container">
+        <div class="date-main"><h1><?=_cat_translate('results',$category_info['id'])?></h1></div>
         <div class="row content-block">
             <section class="col-content">
                 <?php while ($row_data=mysqli_fetch_array($result_results)){
@@ -152,10 +126,9 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                     }*/
                     ?>
                     <div class="game-block past">
-                        <div class="game-info"><div class="top-section"><div class="inner-top"><div class="game-logo">
-                                        <a href="<?=setUrl($category_info['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a></div>
-                                    <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug'])?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;"> Resultado <?=$category_info['name']?></a>
-                                        <!--<span class="date"> <?/*=_date($row_data['result_date'])*/?></span>--></div></div>
+                    <div class="game-info"><div class="top-section"><div class="inner-top"><div class="game-logo">
+                     <a href="<?=setUrl($category_info['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a></div>
+                     <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug'])?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;"> Resultado <?=$category_info['name']?></a></div></div>
                                 <div class="clear mb20"></div><div class="game-details"><div class="game-scores ball-mode">
                                         <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
                                             <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>
@@ -170,8 +143,9 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                                         <?php } ?>
                                         <?php /*if($row_data['score'] != ''){*/?><!--
 <span class="score special3"><?/*=$row_data['score']*/?></span>
-                                    --><?php /*} */?>
-                                    </div></div></div></div></div>
+                                    --><?php /*} */?>  
+                            <div class="game-footer">
+                            <span class="date session-badge" style="display: inline;"> <?= date('M j', strtotime($row_data['result_date'])) ?> </span></div></div></div></div></div></div>
                 <?php } ?>
                 <div class="pagination">
                 <?php
@@ -186,12 +160,10 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
               </div>
               <div class="button-row" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
                     <!-- Button -->
-                    <a href="https://resultadodeltrisdehoy.com/historico-tris" style="flex: 1; text-align: center; padding: 10px; background-color: #02acff; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 16px;">
+                    <a href="<?=setUrl($category_info['slug']).'/historico'?>" style="flex: 1; text-align: center; padding: 10px; background-color: #02acff; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 16px;">
                         Sorteos Anteriores</a>
                     <a href="https://resultadodeltrisdehoy.com/generador-de-numeros-del-tris" style="flex: 1; text-align: center; padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 14px;">
-                        Generar número</a>
-                    <a href="https://resultadodeltrisdehoy.com/comprobador-de-billetes" style="flex: 1; text-align: center; padding: 10px; background-color: #6495ED; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 16px;">
-                        Comprobador de billetes</a></div>
+                        Generar número</a></div>
               <?php if(!empty($hasDate)){?>
                         <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',$REQUEST_URI[2],_translate('results-post-below-text')))?></p>
                     <?php }else {?>
@@ -199,40 +171,18 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                     <?php }?>
             </section>
         </div>
-        <div class="row content-block dark" style="display: <?=!empty($hasDate)?'none':''?>;">
+         <div class="row content-block dark">
             <div class="date-chooser flex-grow-1">
-               <h2><?=_cat_translate('predictions',$category_info['id'])?></h2>
-            </div>
+               <h2><?=_cat_translate('schedule',$category_info['id'])?></h2>
+            </div> 
         </div>
-        <div style="display: <?=!empty($hasDate)?'none':''?>;" class="row content-block" id="pronosticos-section">
-            <section class="col-content">
-                <?php while ($row_data=mysqli_fetch_array($result_predictions)){
-                    $predic_numbers = json_decode($row_data['predic_numbers'],1);
-                    $btns_style = 'background-color:#ddd;color:#666';
-                    if($row_data['score'] == 'Verde'){
-                        $btns_style = '';
-                    }
-                    ?>
-                    <div class="game-block past"><div class="game-info"><div class="top-section"><div class="inner-top">
-                                    <div class="game-logo"><img src="<?=$site_url?>/images/cat_images/<?=$category_info['image']?>" alt="<?=$category_info['name']?>" loading="lazy"></div>
-                                    <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug']).'/predicciones'?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;">Predicciones <?=$category_info['name']?></a><div class="clear mb20"></div><div class="game-scores ball-mode">
-                                            <?php foreach ($predic_numbers as $predic_number){ ?>
-                                                <span class="score" style="<?=$btns_style?>"><?=$predic_number?></span>
-                                            <?php } ?>
-                                            </span></div></div></div></div>
-                            <div class="clearfix"></div><div class="game-footer">
-                                <!--<span class="session-badge"><?/*=$row_data['draw_number']*/?></span>-->
-                                <a href="<?=setUrl($category_info['slug']).'/predicciones/'.urlDate($row_data['date'])?>"><span class="session-badge"><?=_date($row_data['date'])?></span></a>
-                                <a href="<?=setUrl($category_info['slug']).'/numeros-calientes'?>"><span class="session-date session-badge">Números Calientes</span></a>
-                                <a href="<?=setUrl($category_info['slug']).'/numeros-frios'?>"><span class="home-comment session-badge">Números Fríos</span></a>
-                            </div></div></div>
-                <?php } ?>
-            </section>
-             <?php if(!empty($hasDate)){?>
-                        <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',$REQUEST_URI[2],_translate('result-post-prediction-text')))?></p>
-                    <?php }else {?>
-                    <?=_cat_translate('results-predictions-text',$category_info['id'])?>
-                    <?php }?>
+        <div class="row content-block">
+            <p><?=_cat_translate('schedule-table',$category_info['id'])?></p>
+        </div>
+        <div class="row content-block dark">
+            <div class="date-chooser flex-grow-1">
+               <h2><?=_cat_translate('hot-and-cold-number',$category_info['id'])?></h2>
+            </div> 
         </div>
         <div class="row content-block">
             <?php if(!empty($hasDate)){?>
@@ -247,7 +197,7 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                             <div class="game-info">
                                 <div class="card hotColdCard" style="background: #f6cfcf;">
                                     <div class="card-header">
-                                        <strong><i class="fas fa-fire" aria-hidden="true"></i> Caliente <?=$category_info['name']?></strong>
+                                        <h3 style="display: inline; font-weight: bold;"><i class="fas fa-fire" aria-hidden="true"></i> Caliente Tris Mediodía</h3>
                                         <a style="float: right" href="<?=setUrl($category_info['slug'].'/numeros-calientes')?>">Más números</a>
                                     </div>
                                     <div class="card-body" style="overflow-x:auto;">
@@ -282,7 +232,8 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                             <div class="game-info">
                                 <div class="card hotColdCard" style="background: #dae6ec;">
                                     <div class="card-header" >
-                                        <strong><i class="fa fa-thermometer-empty" aria-hidden="true"></i> Frios <?=$category_info['name']?></strong>
+                                        <h3 style="display: inline; font-weight: bold;"><i class="fa fa-thermometer-empty" aria-hidden="true"></i> Frios <?=$category_info['name']?></h3>
+
                                         <a style="float: right" href="<?=setUrl($category_info['slug'].'/numeros-frios')?>">Más números</a>
                                     </div>
                                     <div class="card-body" style="overflow-x:auto;">
@@ -311,6 +262,9 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
             </div>
         </div>
         <div class="clearfix"></div>
+        <div class="row content-block">
+         <p><?=_cat_translate('how-to-play',$category_info['id'])?></p>
+        </div>
 
         <?php
         $query_faq = "SELECT * FROM faqs WHERE page = 'results__".$category_info['id']."' order by id desc";

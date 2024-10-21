@@ -599,7 +599,7 @@ form {
 
 .game-title,
 a {
-    color: #02acff;
+    color: #005B8A;
     text-decoration: none;
 }
 
@@ -1545,6 +1545,95 @@ align-items: flex-start;
 @media (max-width:400px) {
     .game-block.past .game-scores.ball-mode .score {
         width: 25px;
+    }
+}
+.table-bordered {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 20px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .table-bordered thead th {
+        background-color: #2B642C; /* Vibrant green for headers */
+        color: white;
+        padding: 15px;
+        text-align: left;
+        border: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .table-bordered tbody td {
+        padding: 15px;
+        border: none;
+        background-color: #ffffff;
+        border-bottom: 2px solid #eeeeee; /* Subtle bottom border */
+        position: relative;
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    }
+
+    .table-bordered tbody tr:nth-child(even) {
+        background-color: #f9f9f9; /* Light grey for alternate rows */
+    }
+
+    .table-bordered tbody tr:hover {
+        background-color: #e0f7fa; /* Light blue on hover */
+        transform: scale(1.02); /* Slight zoom effect on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow effect */
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .table-bordered tbody td:first-child {
+        border-left: 4px solid #4CAF50; /* Custom left border */
+        border-radius: 5px 0 0 5px;
+    }
+
+    .table-bordered tbody td:last-child {
+        border-right: 4px solid #4CAF50; /* Custom right border */
+        border-radius: 0 5px 5px 0;
+    }
+
+    .table-bordered thead th:first-child {
+        border-top-left-radius: 8px;
+    }
+
+    .table-bordered thead th:last-child {
+        border-top-right-radius: 8px;
+    }
+
+    .table-bordered tfoot td {
+        padding: 12px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: right;
+        border: none;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    /* Add shadow to the table for a sleek 3D effect */
+    .table-bordered {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+.session-badge {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .session-badge {
+        font-size: 14px;
     }
 }
 .clear {
