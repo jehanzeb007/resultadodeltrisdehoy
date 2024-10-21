@@ -1,7 +1,7 @@
 <?php
 include('includes/config.php');
 $REQUEST_URI = cleanParams(explode('/',$_SERVER['REQUEST_URI']));
-//echo '<pre>';print_r($REQUEST_URI);exit;
+// echo '<pre>';print_r($REQUEST_URI);exit;
 
 if(isset($REQUEST_URI['1']) && !empty($REQUEST_URI['1']) && !validateDate($REQUEST_URI['1'])){
     if(isset($REQUEST_URI['2']) && $REQUEST_URI['2'] == 'scripts.php'){
@@ -21,6 +21,9 @@ if(isset($REQUEST_URI['1']) && !empty($REQUEST_URI['1']) && !validateDate($REQUE
         exit;
     }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'contact-us'){
         include ('contact-us.php');
+        exit;
+    }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'history-new'){
+        include ('history_new.php');
         exit;
     }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'blog'){
         if(isset($REQUEST_URI['2']) && !empty($REQUEST_URI['2'])){
