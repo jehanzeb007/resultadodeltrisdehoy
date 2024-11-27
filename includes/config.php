@@ -2,12 +2,12 @@
 ob_start("ob_gzhandler");
 error_reporting(0);
 session_start();
-$site_url = 'http://resultadodeltrisdehoy.loc';
+$site_url = 'https://resultadodeltrisdehoy.com';
 global $site_url;
 /*Database Configurations*/
 $DBhost = 'localhost';
-$DBuser = 'root';
-$DBpassword = '';
+$DBuser = 'dbAdmin';
+$DBpassword = 'sfs@$5q4q0i5mngfaQ#@fsAG';
 $DBname = 'resultadodeltrisdehoy';
 
 $con = mysqli_connect($DBhost,$DBuser,$DBpassword,$DBname);
