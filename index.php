@@ -1,5 +1,5 @@
 <?php
-exit('cineibng');
+
 include('includes/config.php');
 $REQUEST_URI = cleanParams(explode('/',$_SERVER['REQUEST_URI']));
 // echo '<pre>';print_r($REQUEST_URI);exit;
