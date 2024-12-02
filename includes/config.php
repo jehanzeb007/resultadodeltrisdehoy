@@ -16,6 +16,8 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to Database: " . mysqli_connect_error();
     exit();
 }
+$con->query("SET sql_mode = (SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''))");
+
 $query = "Select * From settings";
 $results = mysqli_query($con, $query);
 $settings = [];

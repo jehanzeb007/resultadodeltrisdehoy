@@ -37,7 +37,7 @@ $query_result_code="SELECT result_code FROM tbl_loterianacional ORDER BY result_
 $result_results_code=mysqli_query($con,$query_result_code);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php
     include 'includes/head.php';
@@ -92,7 +92,9 @@ $result_results_code=mysqli_query($con,$query_result_code);
             ?>
             <div class="row content-block">
                 <div class="text-heading">
+                    <div class="clear mb20"></div>
                     <center><?=$categories[$row_data['cat_id']]['name']?> <strong><?=$row_data['result_code']?> del <?=_date($date)?> </strong>(Apuesta de $ 1)</center>
+                    <div class="clear mb20"></div>
                     <div>
                         <table class="table table-bordered">
                             <thead>

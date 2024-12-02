@@ -29,7 +29,7 @@ if(isset($_POST)){
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php include 'includes/head.php';?>
 </head>

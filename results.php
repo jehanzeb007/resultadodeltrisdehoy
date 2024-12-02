@@ -105,13 +105,15 @@ if(isset($_POST)){
 $plain_name = trim(str_replace('Tris','',$category_info['name']));
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php 
+    include 'includes/head.php';
+    include 'schema/results.php';
+    ?>
 </head>
 <body>
 <div class="wrap">
-
     <?php include 'includes/nav.php'; ?>
         <div class="container">
         <div class="date-main"><h1><?=_cat_translate('results',$category_info['id'])?></h1></div>

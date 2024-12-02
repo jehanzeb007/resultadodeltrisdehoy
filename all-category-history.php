@@ -6,30 +6,17 @@ $current_year = date('Y');
 $yearNumber = isset($_GET['anno']) && is_numeric($_GET['anno']) && $_GET['anno'] >= 1900 && $_GET['anno'] <= $current_year ? intval($_GET['anno']) : 2024;
 
 $page_title = $settings['historico_title'];
-$page_title = str_replace('2024 | 2023 | 2022', '', $page_title);
-$page_title = trim($page_title).' ';
-$yearLinks = '';
-for ($i = 0; $i < 3; $i++) {
-    $year = $current_year - $i;
-    $isActive = ($year == $yearNumber) ? 'active' : '';
-    $yearLinks .= "<a href='?anno={$year}' class='top-link-white btn btn-sm btn-outline-primary mr-2 {$isActive}'>{$year}</a>";
-    if ($i < 2) {
-        $yearLinks .= " | ";
-    }
-}
-$page_title .= $yearLinks;
-$page_meta  = $settings['historico_meta'];
-
-
+$page_meta = $settings['historico_meta'];
 $categoryList = "Select id,name From categories order by id asc";
 $categoryResult = mysqli_query($con, $categoryList);
 
-
+// Query results for the selected year
 $resultsQuery = "SELECT DAY(result_date) as day_number, result_date FROM tbl_loterianacional WHERE YEAR(result_date) = $yearNumber GROUP BY result_date ORDER BY result_date DESC";
 $queryResponse = mysqli_query($con, $resultsQuery);
 ?>
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php include 'includes/head.php';?>
     <style>
@@ -52,29 +39,17 @@ $queryResponse = mysqli_query($con, $resultsQuery);
 </head>
 <body>
 <div class="wrap">
-
-    <?php include 'includes/nav.php'; ?>
-
+    <?php 
+    include 'includes/nav.php';
+    include 'schema/allhistory.php';
+    ?>
     <div class="container">
-        <div class="row">
-            <div class="bcca-breadcrumb">
-                <div class="bcca-breadcrumb-item">Historia</div>
-                <div class="bcca-breadcrumb-item"><a href="<?=$site_url?>"><i class="fa fa-home"></i></a></div>
-            </div>
-        </div>
         <div class="row content-block">
             <section class="col-12">
                 <div class="text-heading">
                     <div class="clear mb20"></div>
                     <h1><?=$page_title?></h1>
                     <p><?=_translate('history')?></p>
-                </div>
-            </section>
-
-        </div>
-        
-        <div class="row content-block">
-                <section class="col-content">
                     <?php
                     if ($queryResponse && mysqli_num_rows($queryResponse) > 0) {
                     ?>
@@ -134,8 +109,9 @@ $queryResponse = mysqli_query($con, $resultsQuery);
                             </div>
                         </div>
                     <?php } ?>
-                </section>
-            </div>
+                </div>
+            </section>
+        </div> 
         <?php
         $query_faq = "SELECT * FROM faqs WHERE page = 'page__historico-tris' order by id desc";
         $result_faq = mysqli_query($con, $query_faq);

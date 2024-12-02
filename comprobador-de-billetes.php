@@ -24,7 +24,7 @@ $query_result_code="SELECT result_code,cat_id FROM tbl_loterianacional ORDER BY 
 $result_results_code=mysqli_query($con,$query_result_code);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php
     include 'includes/head.php';
@@ -34,11 +34,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-        <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-                <h2 style="font-size:18px;">&#10070; Verificador de Números de Boletos Tris</h2>
-            </div>
-        </div>
+        <div class="date-main"><h2 style="font-size:18px;">&#10070; Verificador de Números de Boletos Tris</h2></div>
         <div class="row content-block" id="draw-setion">
             <div class="text-heading">
                 <p><?=_translate('tris-ticket')?></p>

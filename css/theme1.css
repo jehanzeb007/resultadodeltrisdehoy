@@ -659,9 +659,6 @@ position:relative;
     align-items: center;
 gap:10px;
 }
-.game-info .game-details {
-padding-left:140px;
-}
 .game-logo img {
     max-height: 75px;
 max-width:80px;
@@ -1551,7 +1548,6 @@ align-items: flex-start;
         width: 100%;
         border-collapse: separate;
         border-spacing: 0;
-        margin: 20px 0;
         font-size: 16px;
         color: #333;
     }
@@ -1560,7 +1556,7 @@ align-items: flex-start;
         background-color: #2B642C; /* Vibrant green for headers */
         color: white;
         padding: 15px;
-        text-align: left;
+        text-align: center;
         border: none;
         font-weight: bold;
         text-transform: uppercase;
@@ -1571,6 +1567,7 @@ align-items: flex-start;
 
     .table-bordered tbody td {
         padding: 15px;
+        text-align: center;
         border: none;
         background-color: #ffffff;
         border-bottom: 2px solid #eeeeee; /* Subtle bottom border */

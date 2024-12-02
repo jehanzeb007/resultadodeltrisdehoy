@@ -1,9 +1,10 @@
 <?php
 $page_title = $settings['blog_title'];
 $page_meta  = $settings['blog_meta'];
+setlocale(LC_TIME, 'es_MX.UTF-8'); 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php include "includes/head.php"; ?>
     <style>
@@ -118,19 +119,11 @@ $page_meta  = $settings['blog_meta'];
 
     </style>
 </head>
-
 <body>
 <div class="wrap">
-
     <?php include 'includes/nav.php'; ?>
-
     <div class="container">
         <div class="row">
-            <div class="bcca-breadcrumb">
-                <div class="bcca-breadcrumb-item">Blogs</div>
-                <div class="bcca-breadcrumb-item"><a href="<?=$site_url?>"><i class="fa fa-home"></i></a></div>
-            </div>
-        </div>
         <div class="row content-block">
             <section class="flex-grow-1">
                 <div class="ad-container top-ad-container">
@@ -142,12 +135,6 @@ $page_meta  = $settings['blog_meta'];
                     <p><?=_translate('bg-txt')?></p>
                 </div>
             </section>
-
-        </div>
-        <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-                <h2><?=_translate('blog-h2')?></h2>
-            </div>
         </div>
         <div class="row content-block">
             <div class="blog_wrap">
@@ -178,7 +165,7 @@ $page_meta  = $settings['blog_meta'];
                             </a>
                         </div>
                         <div class="blog__list__item__content">
-                            <div class="blog__date"><?=date('M d,Y',strtotime($row_blog['posted_date']))?></div>
+                            <div class="blog__date"><?= strftime('%d de %B de %Y', strtotime($row_blog['posted_date'])) ?></div>
                             <h2 class="blog__list__item__title"><a href="<?=setUrl('blog/'.$row_blog['slug'])?>"><?=substr($row_blog['title'], 0, 100)?></a></h2>
                             <button onclick="window.location.href='<?=setUrl('blog/'.$row_blog['slug'])?>'" class="read-more-button"><?=_translate('more')?></button></p>
                         </div>

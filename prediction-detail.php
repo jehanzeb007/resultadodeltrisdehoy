@@ -58,47 +58,24 @@ $result_predictions = mysqli_query($con, $query_predictions);
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php 
+    include 'includes/head.php';
+    include 'schema/predictions.php';
+    ?>
 </head>
 <body>
 <div class="wrap">
     <?php include 'includes/nav.php'; ?>
     <div class="container">
-        <div class="row">
-            <div class="bcca-breadcrumb">
-                <div class="bcca-breadcrumb-item">Predicciones</div>
-                <div class="bcca-breadcrumb-item"><a href="<?=setUrl($category_info['slug'])?>"><?=$category_info['name']?></a></div>
-                <div class="bcca-breadcrumb-item"><a href="<?=$site_url?>"><i class="fa fa-home"></i> Home</a></div>
-            </div>
-        </div>
+        <div class="date-main"><?=$page_title?></div>
         <div class="row content-block">
             <!--<section class="flex-grow-1">
                 <div class="ad-container top-ad-container">
                   Ads
                 </div>
             </section>-->
-            <section class="col-12">
-                <div class="clear mb20"></div>
-                <div class="text-heading">
-                    <h1><?=$page_title?></h1>
-                     <?php if(!empty($hasDate)){?>
-                        <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',_date($REQUEST_URI[2]),_translate('prediction-post-head-text')))?></p>
-                    <?php }else {?>
-                    <?=_cat_translate('header-predictions',$category_info['id'])?>
-                    <?php }?>
-                </div>
-            </section>
-
-        </div>
-
-        <div class="row content-block dark" style="margin-left: 2px;">
-            <div class="date-chooser flex-grow-1">
-                <h2><?=$category_info['name']?></h2>
-            </div>
-        </div>
-        
         <div class="row content-block">
             <section class="col-content">
                 <?php while ($row_data=mysqli_fetch_array($result_predictions)){
@@ -132,6 +109,15 @@ $result_predictions = mysqli_query($con, $query_predictions);
                     }
                     echo $pagLink;
                     ?>
+                </div>
+                <div class="text-heading">
+                   
+                     
+                     <?php if(!empty($hasDate)){?>
+                        <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',_date($REQUEST_URI[2]),_translate('prediction-post-head-text')))?></p>
+                    <?php }else {?>
+                    <?=_cat_translate('header-predictions',$category_info['id'])?>
+                    <?php }?>
                 </div>
                 <div class="text-heading">
                     <?php if(!empty($hasDate)){?>

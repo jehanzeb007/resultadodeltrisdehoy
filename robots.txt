@@ -1,14 +1,4 @@
-User-agent: *
-Allow: /
-Sitemap: https://resultadodeltrisdehoy.com/sitemap.xml
-Sitemap: https://resultadodeltrisdehoy.com/sitemap_news.xml
-User-agent:SemrushBot
-Disallow: /
-User-agent:AhrefBot
-Disallow: /
-User-agent:ia_archiver
-Disallow: /
-User-agent:ia_archive.org_bot
-Disallow: /
-User-agent:ia_archiver-web.archieve.org
-Disallow: /
+User-agent: *
+Allow: /
+Sitemap: https://resultadodeltrisdehoy.com/sitemap.xml
+Sitemap: https://resultadodeltrisdehoy.com/sitemap_news.xml

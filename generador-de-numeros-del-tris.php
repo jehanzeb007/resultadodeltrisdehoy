@@ -37,7 +37,7 @@ $query_result_code="SELECT result_code FROM tbl_loterianacional ORDER BY result_
 $result_results_code=mysqli_query($con,$query_result_code);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <?php
     include 'includes/head.php';
@@ -47,12 +47,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-
-        <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-                <h1><span><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; Numero Ganador Del Tris De Hoy</span></h1>
-            </div>
-        </div>
+    <div class="date-main"><h1><span><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; Numero Ganador Del Tris De Hoy</span></h1></div>
         <div class="row content-block" style="background:#ffe1e0;">
             <section class="col-content">
                 <div class="card hotpicks">

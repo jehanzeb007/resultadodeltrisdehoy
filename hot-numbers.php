@@ -51,9 +51,12 @@ $pieces_data_numbers = array_chunk($data_numbers, ceil(count($data_numbers) / 2)
 //echo '<pre>';print_r($pieces_data_numbers);echo '</pre>';
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <?php include 'includes/head.php';?>
+    <?php 
+    include 'includes/head.php';
+    include 'schema/hot.php';
+    ?>
     <style>
         #view_all_balls{
             display: none;
@@ -63,29 +66,9 @@ $pieces_data_numbers = array_chunk($data_numbers, ceil(count($data_numbers) / 2)
 </head>
 <body>
 <div class="wrap">
-
     <?php include 'includes/nav.php'; ?>
-
     <div class="container">
-        <div class="row">
-            <div class="bcca-breadcrumb">
-                <div class="bcca-breadcrumb-item">Números Calientes</div>
-                <div class="bcca-breadcrumb-item"><a href="<?=setUrl($category_info['slug'])?>"><?=$category_info['name']?></a></div>
-                <div class="bcca-breadcrumb-item"><a href="<?=$site_url?>"><i class="fa fa-home"></i> Home</a></div>
-            </div>
-        </div>
-        <div class="row content-block">
-                        <section class="col-12">
-                <div class="text-heading">
-                    <p><?=_cat_translate('header-hot-numbers',$category_info['id'])?></p>
-                </div>
-            </section>
-        </div>
-        <div class="row content-block dark" style="margin-left: 2px;">
-            <div class="date-chooser flex-grow-1">
-                <h1><i class="fas fa-fire" aria-hidden="true"></i> <?=$page_title?></h1>
-            </div>
-        </div>
+        <div class="date-main"><h1><i class="fas fa-fire" aria-hidden="true"></i> <?=$page_title?></h1></div>
         <div class="row content-block" style="background: #f6cfcf;">
             <section class="col-content">
                 <div class="game-block past" style="border-bottom: none">
@@ -133,6 +116,13 @@ $pieces_data_numbers = array_chunk($data_numbers, ceil(count($data_numbers) / 2)
                     </div>
                 </div>
             </section>
+             <div class="row content-block">
+                        <section class="col-12">
+                <div class="text-heading">
+                    <p><?=_cat_translate('header-hot-numbers',$category_info['id'])?></p>
+                </div>
+            </section>
+        </div>
         </div>
         <?php
         $query_faq = "SELECT * FROM faqs WHERE page = 'numeros-calientes__".$category_info['id']."' order by id desc";
