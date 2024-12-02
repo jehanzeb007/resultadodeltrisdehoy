@@ -204,7 +204,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Database Link *</label>
+                                                        <label>Database Link</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
@@ -218,7 +218,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>User Name *</label>
+                                                        <label>User Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
@@ -230,7 +230,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Password *</label>
+                                                        <label>Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
