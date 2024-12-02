@@ -95,7 +95,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
                     <div class="clear mb20"></div>
                     <center><?=$categories[$row_data['cat_id']]['name']?> <strong><?=$row_data['result_code']?> del <?=_date($date)?> </strong>(Apuesta de $ 1)</center>
                     <div class="clear mb20"></div>
-                    <div>
+                    <div class="table-responsive" style="overflow-x: auto;">
                         <table class="table table-bordered">
                             <thead>
                             <tr class="danger">

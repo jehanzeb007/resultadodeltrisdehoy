@@ -58,7 +58,7 @@ $numRows = mysqli_num_rows($queryResponse);
                     ?>
                         <div class="row content-block">
                             <div class="text-heading">
-                                <div>
+                                <div class="table-responsive" style="overflow-x: auto;">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="danger">

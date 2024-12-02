@@ -35,6 +35,7 @@ $queryResponse = mysqli_query($con, $resultsQuery);
         .top-link-white.active {
             color: #4CAF50;
         }
+        
     </style>
 </head>
 <body>
@@ -55,8 +56,8 @@ $queryResponse = mysqli_query($con, $resultsQuery);
                     ?>
                         <div class="row content-block">
                             <div class="text-heading">
-                                <div>
-                                    <table class="table table-bordered">
+                                <div class="table-responsive" style="overflow-x: auto;">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="danger">
                                                 <th class="text-center">Date</th>
@@ -106,8 +107,8 @@ $queryResponse = mysqli_query($con, $resultsQuery);
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                     <?php } ?>
                 </div>
             </section>

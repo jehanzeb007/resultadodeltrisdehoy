@@ -80,7 +80,7 @@ $queryResponse = mysqli_query($con, $resultsQuery);
                     ?>
                         <div class="row content-block">
                             <div class="text-heading">
-                                <div>
+                                <div class="table-responsive" style="overflow-x: auto;">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="danger">
