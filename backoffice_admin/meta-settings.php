@@ -113,6 +113,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+    
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -194,6 +195,53 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <i class="fa fa-table"></i> Database Setting
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Database Link *</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                    <a href="http://212.28.177.188/adminDbMgmt/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Go to Admin DB Management">
+                                                        <i class="fa fa-link" style="cursor: pointer;"></i>
+                                                    </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>User Name *</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                    <i class="fa fa-user" data-bs-toggle="tooltip" data-bs-placement="top" title="resultadodeltrisdehoy"  credentials="resultadodeltrisdehoy" id="username-icon" style="cursor: pointer;"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Password *</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                    <i class="fa fa-lock" data-bs-toggle="tooltip" data-bs-placement="top" title="sfs@$5q4q0i5mngfaQ#@fsAG"  credentials="sfs@$5q4q0i5mngfaQ#@fsAG" id="password-icon" style="cursor: pointer;"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card mb-3">
                                     <div class="card-header">
                                         <i class="fa fa-table"></i> Home Page Meta
@@ -326,6 +374,57 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
     <!-- /.content-wrapper-->
     <?php include 'footer.php'; ?>
 </div>
+<script>
+        var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        var tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        // Copy to clipboard function using Clipboard API
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    console.log('Text copied to clipboard');
+                }).catch(function(err) {
+                    console.error('Unable to copy text: ', err);
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                console.log('Text copied to clipboard (fallback)');
+            }
+        }
+
+        // Add click event listener to username icon
+        document.getElementById("username-icon").addEventListener("click", function() {
+            const tooltipText = this.getAttribute("credentials");
+            copyToClipboard(tooltipText);
+            const icon = this;
+            const originalText = icon.innerHTML; // Save original icon content
+            // Set "Copied" text inside <i></i>
+            icon.innerHTML = "Copied!";
+            // Reset to original icon content after 2 seconds
+            setTimeout(function() {
+                icon.innerHTML = originalText;
+            }, 1000);
+        });
+
+        // Add click event listener to password icon
+        document.getElementById("password-icon").addEventListener("click", function() {
+            const tooltipText = this.getAttribute("credentials"); // Get the tooltip text
+            copyToClipboard(tooltipText);
+            const icon = this;
+            const originalText = icon.innerHTML; // Save original icon content
+            // Set "Copied" text inside <i></i>
+            icon.innerHTML = "Copied!";
+            // Reset to original icon content after 2 seconds
+            setTimeout(function() {
+                icon.innerHTML = originalText;
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>
