@@ -139,8 +139,8 @@ function setUrl($page){
     $site_lang = $_COOKIE['site_lang'];
     return $site_url.'/'.$page;
 }
-function pageUrl($slug){
-    return setUrl('info').$slug.'/';
+function pageUrl($slug) {
+    return setUrl('').$slug.'/'; // Remove 'info' to construct a clean URL
 }
 function webpConvert2($file, $compression_quality = 80)
 {

@@ -130,7 +130,7 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                     <div class="game-block past">
                     <div class="game-info"><div class="top-section"><div class="inner-top"><div class="game-logo">
                      <a href="<?=setUrl($category_info['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a></div>
-                     <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug'])?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;"> Resultado <?=$category_info['name']?></a></div></div>
+                     <div class="content"><a class="game-title" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;"> Resultado <?=$category_info['name']?></a></div></div>
                                 <div class="clear mb20"></div><div class="game-details"><div class="game-scores ball-mode">
                                         <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
                                             <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>

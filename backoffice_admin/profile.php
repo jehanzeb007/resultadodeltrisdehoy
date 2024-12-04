@@ -115,35 +115,7 @@ if(isset($_POST) && !empty($_POST)){
                 </div>
             </div>
         </div>
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-table"></i> Database Information</div>
-            <div class="card-body">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>URL</label><br>
-                                <a href="http://209.126.7.10/adminDbMgmt" target="_blank">http://209.126.7.10/adminDbMgmt</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Username</label><br>
-                                <code>dbAdmin</code>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Password</label><br>
-                                <code>sfs@$5q4q0i5mngfaQ#@fsAG</code>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <?php include 'footer.php'; ?>

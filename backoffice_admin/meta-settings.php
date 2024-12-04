@@ -45,8 +45,6 @@ if(isset($_POST) && !empty($_POST)){
                 }
             }
 
-
-
             $query_update = "Update settings set value = '".$_POST['home_title']."' WHERE slug = 'home_title'";
             mysqli_query($con, $query_update);
             $query_update = "Update settings set value = '".$_POST['home_meta']."' WHERE slug = 'home_meta'";
@@ -210,7 +208,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                     <a href="http://212.28.177.188/adminDbMgmt/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Go to Admin DB Management">
-                                                        <i class="fa fa-link" style="cursor: pointer;"></i>
+                                                        <i class="fa fa-link" style="cursor: pointer;"></i>&nbsp;
                                                     </a>
                                                     </div>
                                                 </div>
@@ -223,7 +221,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                    <i class="fa fa-user" data-bs-toggle="tooltip" data-bs-placement="top" title="resultadodeltrisdehoy"  credentials="resultadodeltrisdehoy" id="username-icon" style="cursor: pointer;"></i>
+                                                    <i class="fa fa-user" data-bs-toggle="tooltip" data-bs-placement="top" title="User Name"  credentials="dbAdmin" id="username-icon" style="cursor: pointer;"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -235,7 +233,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                    <i class="fa fa-lock" data-bs-toggle="tooltip" data-bs-placement="top" title="sfs@$5q4q0i5mngfaQ#@fsAG"  credentials="sfs@$5q4q0i5mngfaQ#@fsAG" id="password-icon" style="cursor: pointer;"></i>
+                                                    <i class="fa fa-lock" data-bs-toggle="tooltip" data-bs-placement="top" title="password"  credentials="sfs@$5q4q0i5mngfaQ#@fsAG" id="password-icon" style="cursor: pointer;"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -404,7 +402,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
             const icon = this;
             const originalText = icon.innerHTML; // Save original icon content
             // Set "Copied" text inside <i></i>
-            icon.innerHTML = "Copied!";
+            icon.innerHTML = "Copy";
             // Reset to original icon content after 2 seconds
             setTimeout(function() {
                 icon.innerHTML = originalText;
@@ -418,7 +416,7 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
             const icon = this;
             const originalText = icon.innerHTML; // Save original icon content
             // Set "Copied" text inside <i></i>
-            icon.innerHTML = "Copied!";
+            icon.innerHTML = "Copy!";
             // Reset to original icon content after 2 seconds
             setTimeout(function() {
                 icon.innerHTML = originalText;

@@ -87,7 +87,7 @@ $result_predictions = mysqli_query($con, $query_predictions);
                     ?>
                     <div class="game-block past"><div class="game-info"><div class="top-section"><div class="inner-top">
                                     <div class="game-logo"><img src="<?=$site_url?>/images/cat_images/<?=$category_info['image']?>" alt="<?=$category_info['name']?>" loading="lazy"></div>
-                                    <div class="content"><a class="game-title" href="<?=setUrl($category_info['slug']).'/predicciones'?>" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;">Predicciones <?=$category_info['name']?></a><div class="clear mb20"></div><div class="game-scores ball-mode">
+                                    <div class="content"><a class="game-title" style="border: 1px solid #02acff; padding: 3px; border-radius: 10px;">Predicciones <?=$category_info['name']?></a><div class="clear mb20"></div><div class="game-scores ball-mode">
                                             <?php foreach ($predic_numbers as $predic_number){ ?>
                                                 <span class="score" style="<?=$btns_style?>"><?=$predic_number?></span>
                                             <?php } ?>
