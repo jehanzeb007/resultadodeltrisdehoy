@@ -32,6 +32,21 @@ if(isset($_POST) && !empty($_POST)){
                 }else{
                     $errors[] = 'Sorry! Logo is not updating.';
                 }
+            } elseif (isset($_POST['remove_site_logo']) && !empty($_POST['remove_site_logo'])) {
+                $fileName = $_POST['remove_site_logo']; // Get the old file name
+            
+                // Remove site logo from database
+                $query_update = "UPDATE settings SET value = '' WHERE slug = 'site_logo'";
+                if (mysqli_query($con, $query_update)) {
+                    // Delete the file from the server
+                    $filePath = '../images/' . $fileName;
+                    if (file_exists($filePath)) {
+                        unlink($filePath); // Delete the old file
+                    }
+                    echo "Site Logo removed successfully.";
+                } else {
+                    echo "Error: Unable to update the database.";
+                }
             }
             /*Update Site Favicon*/
             if(isset($_FILES['site_favicon']) && !empty($_FILES['site_favicon']['name'])){
@@ -42,6 +57,18 @@ if(isset($_POST) && !empty($_POST)){
                     mysqli_query($con, $query_update);
                 }else{
                     $errors[] = 'Sorry! Logo is not updating.';
+                }
+            } elseif (isset($_POST['remove_fav_icon']) && !empty($_POST['remove_fav_icon'])) {
+                $fileName = $_POST['remove_fav_icon'];
+                $query_update = "UPDATE settings SET value = '' WHERE slug = 'site_favicon'";
+                if (mysqli_query($con, $query_update)) {
+                    $filePath = '../images/' . $fileName;
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                    echo "Fav Icon removed successfully.";
+                } else {
+                    echo "Error: Unable to update the database.";
                 }
             }
 
@@ -146,34 +173,22 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                         <?php include('errors.php'); ?>
                         <input type="hidden" name="type" value="config">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Site Name</label>
                                     <input class="form-control" type="text"  name="site_name" value="<?=isset($settings['site_name'])?$settings['site_name']:''?>">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <label>Contact Email</label>
                                     <input class="form-control" required type="text"  name="contact_us" value="<?=isset($settings['contact_us'])?$settings['contact_us']:''?>">
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>Site Logo *</label>
-                                    <input class="form-control"  type="file"  name="site_logo">
-                                    <i>Size 210 x 42</i>
-                                    <img style="width: 210px;" src="../images/<?=isset($settings['site_logo'])?$settings['site_logo']:''?>">
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>Site Favicon</label>
-                                    <input class="form-control"  type="file"  name="site_favicon">
-                                    <i>Size 20 x 20</i>
-                                    <img style="width: 50px;" src="../images/<?=isset($settings['site_favicon'])?$settings['site_favicon']:''?>">
-                                </div>
-                            </div>
+                        </div>
+                        <div class="row">
+                        </div>
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <div class="form-check-inline">
@@ -357,6 +372,32 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <i class="fa fa-table"></i> Images
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="row">  
+                                                <div class="col-md-6">
+                                                    <label>Site Logo</label>
+                                                    <div class="form-group">
+                                                        <input id="site_logo" name="site_logo" type="file" class="file" placeholder="select site logo">
+                                                        <input id="remove_site_logo" name="remove_site_logo" type="hidden" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Fav Icon</label>
+                                                    <div class="form-group">
+                                                        <input id="site_favicon" name="site_favicon" type="file" class="file">
+                                                        <input id="remove_fav_icon" name="remove_fav_icon" type="hidden" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -422,7 +463,54 @@ if(isset($_GET['generate_site_map']) && $_GET['generate_site_map'] == 'true'){
                 icon.innerHTML = originalText;
             }, 1000);
         });
-    </script>
+        function initializeFileInput(selector, filePath, caption, removeInputName, buttonText) {
+            console.log(buttonText)
+            let oldFileName = '';
+            const options = {
+                showUpload: false,
+                showRemove: true,
+                browseClass: 'btn btn-primary',
+                previewFileType: 'image',
+                allowedFileExtensions: ['jpg', 'png'],
+                dropZoneEnabled: false,
+                showCaption: true,
+                overwriteInitial: true,
+                maxFileCount: 1,
+                initialPreviewAsData: true,
+            };
+            if (filePath) {
+                options.initialPreview = [`../images/${filePath}`];
+                options.initialPreviewConfig = [
+                    {
+                        caption: caption,
+                        key: 1
+                    }
+                ];
+                oldFileName = filePath;
+            }
+
+            $(selector).fileinput(options);
+            $(selector).on('fileclear', function(event) {
+                if (oldFileName) {
+                    const input = $('#' + removeInputName);
+                    input.val(oldFileName);
+                    console.log('Hidden input value set to: ', oldFileName);
+                }
+            });
+        }
+        const siteLogo = "<?= isset($settings['site_logo']) && !empty($settings['site_logo']) ? $settings['site_logo'] : '' ?>";
+        initializeFileInput("#site_logo", siteLogo, "Site Logo", "remove_site_logo", "Select Site Logo");
+
+        const siteFavIcon = "<?= isset($settings['site_favicon']) && !empty($settings['site_favicon']) ? $settings['site_favicon'] : '' ?>";
+        initializeFileInput("#site_favicon", siteFavIcon, "Fav Icon", "remove_fav_icon", "Select Fav Icon");
+
+
+
+
+
+
+    
+</script>
 </body>
 
 </html>

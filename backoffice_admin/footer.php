@@ -35,6 +35,8 @@
 <script src="js/sb-admin.min.js"></script>
 <!-- Custom scripts for this page-->
 <script src="js/sb-admin-datatables.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-fileinput/js/fileinput.min.js"></script>
 <!--<script src="js/sb-admin-charts.min.js"></script>-->
 <script>
     function toggleNavSubMenu() {
