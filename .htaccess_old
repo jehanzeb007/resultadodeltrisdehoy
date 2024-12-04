@@ -1,16 +1,11 @@
-RewriteEngine ON
+# Enable URL rewriting
+RewriteEngine On
 
-#Force HTTPS
-RewriteCond %{HTTPS} off 
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R]
+# Redirect HTTPS to HTTP
+RewriteCond %{HTTPS} on
+RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Redirect all requests to index.php if the file or directory doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-#Remove .php extension from URLs
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [L]
-
-#Add param in index.php file
-RewriteRule ^([\w\d~%.:_\-]+)$ index.php?page=$1 [NC]
-
+RewriteRule ^(.*)$ index.php [L]
