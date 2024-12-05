@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c381fdae-863c-43ff-95f6-429d7af14afa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,15 +14,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1732712068956" expanded="true" signature="1526:1583" ph="Select id fr... pages" />
-                <marker date="1732712068956" expanded="true" signature="1730:1792" ph="Select id fr... categories" />
+                <marker date="1733335082757" expanded="true" signature="1526:1583" ph="Select id fr... pages" />
+                <marker date="1733335082757" expanded="true" signature="1730:1792" ph="Select id fr... categories" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact-us.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/contact-us.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="838" column="38" lean-forward="false" selection-start-line="838" selection-start-column="38" selection-end-line="838" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -31,9 +40,11 @@
       <file leaf-file-name="all-category-history.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/all-category-history.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="78" column="50" lean-forward="false" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="1080">
+              <caret line="54" column="50" lean-forward="false" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
+              <folding>
+                <marker date="1733335078770" expanded="true" signature="5888:6163" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,17 +53,17 @@
         <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1160">
-              <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="78" selection-end-column="66" />
+              <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
               <folding>
-                <marker date="1729547518320" expanded="true" signature="95:136" ph="SELECT * FRO... categories" />
-                <marker date="1729547518320" expanded="true" signature="399:466" ph="SELECT * FRO... predictions" />
-                <marker date="1729547518320" expanded="true" signature="619:670" ph="SELECT * FRO... predictions" />
-                <marker date="1729547518320" expanded="true" signature="619:671" ph="SELECT * FRO... predictions" />
-                <marker date="1729547518320" expanded="true" signature="755:838" ph="SELECT * FRO... tbl_loterianacional" />
-                <marker date="1729547518320" expanded="true" signature="975:1042" ph="SELECT * FRO... tbl_loterianacional" />
-                <marker date="1729547518320" expanded="true" signature="1366:1488" ph="SELECT * FRO... tbl_loterianacional" />
-                <marker date="1729547518320" expanded="true" signature="1617:1695" ph="SELECT resul... tbl_loterianacional" />
-                <marker date="1729547518320" expanded="true" signature="9374:9435" ph="SELECT * FRO... faqs" />
+                <marker date="1733335081490" expanded="true" signature="95:136" ph="SELECT * FRO... categories" />
+                <marker date="1733335081490" expanded="true" signature="399:466" ph="SELECT * FRO... predictions" />
+                <marker date="1733335081490" expanded="true" signature="619:670" ph="SELECT * FRO... predictions" />
+                <marker date="1733335081490" expanded="true" signature="619:671" ph="SELECT * FRO... predictions" />
+                <marker date="1733335081490" expanded="true" signature="755:838" ph="SELECT * FRO... tbl_loterianacional" />
+                <marker date="1733335081490" expanded="true" signature="975:1042" ph="SELECT * FRO... tbl_loterianacional" />
+                <marker date="1733335081490" expanded="true" signature="1366:1488" ph="SELECT * FRO... tbl_loterianacional" />
+                <marker date="1733335081490" expanded="true" signature="1617:1695" ph="SELECT resul... tbl_loterianacional" />
+                <marker date="1733335081490" expanded="true" signature="6694:9461" ph="..." />
               </folding>
             </state>
           </provider>
@@ -61,8 +72,8 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7660">
-              <caret line="383" column="42" lean-forward="false" selection-start-line="383" selection-start-column="42" selection-end-line="383" selection-end-column="42" />
+            <state relative-caret-position="7820">
+              <caret line="391" column="42" lean-forward="false" selection-start-line="391" selection-start-column="42" selection-end-line="391" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -71,13 +82,14 @@
       <file leaf-file-name="results.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/results.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5500">
-              <caret line="275" column="6" lean-forward="false" selection-start-line="275" selection-start-column="6" selection-end-line="275" selection-end-column="6" />
+            <state relative-caret-position="5540">
+              <caret line="277" column="6" lean-forward="false" selection-start-line="277" selection-start-column="6" selection-end-line="277" selection-end-column="6" />
               <folding>
-                <marker date="1729547518356" expanded="true" signature="106:167" ph="Select * Fro... categories" />
-                <marker date="1729547518356" expanded="true" signature="1149:1234" ph="Select resul... tbl_loterianacional" />
-                <marker date="1729547518356" expanded="true" signature="1574:1710" ph="Select * Fro... tbl_loterianacional" />
-                <marker date="1729547518356" expanded="true" signature="1796:1890" ph="Select * Fro... predictions" />
+                <marker date="1733335082996" expanded="true" signature="106:167" ph="Select * Fro... categories" />
+                <marker date="1733335082996" expanded="true" signature="1149:1234" ph="Select resul... tbl_loterianacional" />
+                <marker date="1733335082996" expanded="true" signature="1574:1710" ph="Select * Fro... tbl_loterianacional" />
+                <marker date="1733335082996" expanded="true" signature="1796:1890" ph="Select * Fro... predictions" />
+                <marker date="1733335082996" expanded="true" signature="5287:5412" ph="..." />
               </folding>
             </state>
           </provider>
@@ -222,7 +234,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1048" />
+    <option name="height" value="1168" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -239,8 +251,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,8 +285,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="them&#9;FILE&#9;file://D:/wamp/www/resultadodeltrisdehoy/css/theme1.css&#10;sty&#9;FILE&#9;file://D:/wamp/www/resultadodeltrisdehoy/css/style.css&#10;confi&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/config.php&#10;index&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;meta-settings.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/meta-settings.php&#10;footer&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/footer.php&#10;generador-de-numeros-del-tris.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/generador-de-numeros-del-tris.php&#10;comprobador-de-billetes.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/comprobador-de-billetes.php&#10;the&#9;FILE&#9;file://D:/wamp/www/lotery_site/css/theme1.css&#10;hom&#9;FILE&#9;file://D:/wamp/www/lotery_site/home.php&#10;ind&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;theme1&#9;FILE&#9;file://D:/wamp/www/lotery_site/css/theme1.css&#10;blogs.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/blogs.php&#10;home&#9;FILE&#9;file://D:/wamp/www/lotery_site/home.php&#10;profile.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/profile.php&#10;blog&#9;FILE&#9;file://D:/wamp/www/lotery_site/blog.php&#10;create_blog.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/create_blog.php&#10;blog_edit.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/blog_edit.php&#10;keywords_slugs.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/keywords_slugs.php&#10;head&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/head.php&#10;inde&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;col&#9;FILE&#9;file://D:/wamp/www/lotery_site/cold-numbers.php&#10;hot&#9;FILE&#9;file://D:/wamp/www/lotery_site/hot-numbers.php&#10;pred&#9;FILE&#9;file://D:/wamp/www/lotery_site/prediction-detail.php&#10;res&#9;FILE&#9;file://D:/wamp/www/lotery_site/results.php&#10;404&#9;FILE&#9;file://E:/wamp/www/lotery_site/404.php&#10;his&#9;FILE&#9;file://E:/wamp/www/lotery_site/history.php&#10;hi&#9;FILE&#9;file://E:/wamp/www/lotery_site/all-category-history.php&#10;pre&#9;FILE&#9;file://E:/wamp/www/lotery_site/prediction-detail.php&#10;predictions.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/predictions.php&#10;conf&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/config.php&#10;nav&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/nav.php&#10;na&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/nav.php&#10;foote&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/footer.php&#10;index.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/index.php&#10;meta&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/meta-settings.php&#10;fix_json_string&#9;null&#9;null&#10;category_keywords_slugs.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/category_keywords_slugs.php&#10;faq&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/faq.php&#10;theme&#9;FILE&#9;file://E:/wamp/www/lotery_site/css/theme1.css&#10;deta&#9;FILE&#9;file://E:/wamp/www/lotery_site/blog-detail.php&#10;in&#9;FILE&#9;file://E:/wamp/www/lotery_site/index.php&#10;cate&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/categories.php&#10;cat&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/categories.php&#10;scripts.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/scripts.php&#10;scr&#9;FILE&#9;file://E:/wamp/www/lotery_site/scripts.php&#10;page_edit.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/page_edit.php&#10;create_page.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/create_page.php&#10;/create_blog.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/create_blog.php&#10;key&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/keywords_slugs.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../greencard_wordpress_plugin" />
+    <property name="SearchEverywhereHistoryKey" value="conta&#9;FILE&#9;file://D:/wamp/www/resultadodeltrisdehoy/contact-us.php&#10;them&#9;FILE&#9;file://D:/wamp/www/resultadodeltrisdehoy/css/theme1.css&#10;sty&#9;FILE&#9;file://D:/wamp/www/resultadodeltrisdehoy/css/style.css&#10;confi&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/config.php&#10;index&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;meta-settings.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/meta-settings.php&#10;footer&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/footer.php&#10;generador-de-numeros-del-tris.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/generador-de-numeros-del-tris.php&#10;comprobador-de-billetes.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/comprobador-de-billetes.php&#10;the&#9;FILE&#9;file://D:/wamp/www/lotery_site/css/theme1.css&#10;hom&#9;FILE&#9;file://D:/wamp/www/lotery_site/home.php&#10;ind&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;theme1&#9;FILE&#9;file://D:/wamp/www/lotery_site/css/theme1.css&#10;blogs.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/blogs.php&#10;home&#9;FILE&#9;file://D:/wamp/www/lotery_site/home.php&#10;profile.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/profile.php&#10;blog&#9;FILE&#9;file://D:/wamp/www/lotery_site/blog.php&#10;create_blog.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/create_blog.php&#10;blog_edit.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/blog_edit.php&#10;keywords_slugs.php&#9;FILE&#9;file://D:/wamp/www/lotery_site/backoffice_admin/keywords_slugs.php&#10;head&#9;FILE&#9;file://D:/wamp/www/lotery_site/includes/head.php&#10;inde&#9;FILE&#9;file://D:/wamp/www/lotery_site/index.php&#10;col&#9;FILE&#9;file://D:/wamp/www/lotery_site/cold-numbers.php&#10;hot&#9;FILE&#9;file://D:/wamp/www/lotery_site/hot-numbers.php&#10;pred&#9;FILE&#9;file://D:/wamp/www/lotery_site/prediction-detail.php&#10;res&#9;FILE&#9;file://D:/wamp/www/lotery_site/results.php&#10;404&#9;FILE&#9;file://E:/wamp/www/lotery_site/404.php&#10;his&#9;FILE&#9;file://E:/wamp/www/lotery_site/history.php&#10;hi&#9;FILE&#9;file://E:/wamp/www/lotery_site/all-category-history.php&#10;pre&#9;FILE&#9;file://E:/wamp/www/lotery_site/prediction-detail.php&#10;predictions.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/predictions.php&#10;conf&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/config.php&#10;nav&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/nav.php&#10;na&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/nav.php&#10;foote&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/footer.php&#10;index.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/index.php&#10;meta&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/meta-settings.php&#10;fix_json_string&#9;null&#9;null&#10;category_keywords_slugs.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/category_keywords_slugs.php&#10;faq&#9;FILE&#9;file://E:/wamp/www/lotery_site/includes/faq.php&#10;theme&#9;FILE&#9;file://E:/wamp/www/lotery_site/css/theme1.css&#10;deta&#9;FILE&#9;file://E:/wamp/www/lotery_site/blog-detail.php&#10;in&#9;FILE&#9;file://E:/wamp/www/lotery_site/index.php&#10;cate&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/categories.php&#10;cat&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/categories.php&#10;scripts.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/scripts.php&#10;scr&#9;FILE&#9;file://E:/wamp/www/lotery_site/scripts.php&#10;page_edit.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/page_edit.php&#10;create_page.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/create_page.php&#10;/create_blog.php&#9;FILE&#9;file://E:/wamp/www/lotery_site/backoffice_admin/create_blog.php" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
@@ -486,17 +498,20 @@
       <workItem from="1729592213081" duration="597000" />
       <workItem from="1732662402746" duration="706000" />
       <workItem from="1732712066389" duration="4000" />
+      <workItem from="1733335104913" duration="609000" />
+      <workItem from="1733346611866" duration="25000" />
+      <workItem from="1733346644800" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270886000" />
+    <option name="totallyTimeSpent" value="271539000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1168" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29010418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29957357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -615,13 +630,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schema.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/schema.php" />
     <entry file="file://$PROJECT_DIR$/includes/faq.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -634,16 +643,16 @@
         <state relative-caret-position="330">
           <caret line="158" column="185" lean-forward="false" selection-start-line="158" selection-start-column="185" selection-end-line="158" selection-end-column="185" />
           <folding>
-            <marker date="1716605108000" expanded="true" signature="520:598" ph="Select id Fr... category_keywords" />
-            <marker date="1716605108000" expanded="true" signature="954:1089" ph="INSERT INTO category_keywords... " />
-            <marker date="1716605108000" expanded="true" signature="1701:1785" ph="Delete From " />
-            <marker date="1716605108000" expanded="true" signature="1919:2005" ph="INSERT INTO category_keywords... " />
-            <marker date="1716605108000" expanded="true" signature="1919:2034" ph="UPDATE categ... " />
-            <marker date="1716605108000" expanded="true" signature="1919:2038" ph="INSERT INTO category_keywords... " />
-            <marker date="1716605108000" expanded="true" signature="1919:2058" ph="INSERT INTO category_keywords... " />
-            <marker date="1716605108000" expanded="true" signature="2367:2440" ph="Delete From " />
-            <marker date="1716605108000" expanded="true" signature="2636:2677" ph="Select * Fro... categories" />
-            <marker date="1716605108000" expanded="true" signature="2871:2919" ph="Select * Fro... category_keywords" />
+            <marker date="1733335078972" expanded="true" signature="520:598" ph="Select id Fr... category_keywords" />
+            <marker date="1733335078972" expanded="true" signature="954:1089" ph="INSERT INTO category_keywords... " />
+            <marker date="1733335078972" expanded="true" signature="1701:1785" ph="Delete From " />
+            <marker date="1733335078972" expanded="true" signature="1919:2005" ph="INSERT INTO category_keywords... " />
+            <marker date="1733335078972" expanded="true" signature="1919:2034" ph="UPDATE categ... " />
+            <marker date="1733335078972" expanded="true" signature="1919:2038" ph="INSERT INTO category_keywords... " />
+            <marker date="1733335078972" expanded="true" signature="1919:2058" ph="INSERT INTO category_keywords... " />
+            <marker date="1733335078972" expanded="true" signature="2367:2440" ph="Delete From " />
+            <marker date="1733335078972" expanded="true" signature="2636:2677" ph="Select * Fro... categories" />
+            <marker date="1733335078972" expanded="true" signature="2871:2919" ph="Select * Fro... category_keywords" />
           </folding>
         </state>
       </provider>
@@ -681,13 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1476">
           <caret line="82" column="72" lean-forward="false" selection-start-line="82" selection-start-column="72" selection-end-line="82" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contact-us.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -854,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7660">
-          <caret line="383" column="42" lean-forward="false" selection-start-line="383" selection-start-column="42" selection-end-line="383" selection-end-column="42" />
+        <state relative-caret-position="7820">
+          <caret line="391" column="42" lean-forward="false" selection-start-line="391" selection-start-column="42" selection-end-line="391" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -876,13 +878,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/results.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5500">
-          <caret line="275" column="6" lean-forward="false" selection-start-line="275" selection-start-column="6" selection-end-line="275" selection-end-column="6" />
+        <state relative-caret-position="5540">
+          <caret line="277" column="6" lean-forward="false" selection-start-line="277" selection-start-column="6" selection-end-line="277" selection-end-column="6" />
           <folding>
-            <marker date="1729547518356" expanded="true" signature="106:167" ph="Select * Fro... categories" />
-            <marker date="1729547518356" expanded="true" signature="1149:1234" ph="Select resul... tbl_loterianacional" />
-            <marker date="1729547518356" expanded="true" signature="1574:1710" ph="Select * Fro... tbl_loterianacional" />
-            <marker date="1729547518356" expanded="true" signature="1796:1890" ph="Select * Fro... predictions" />
+            <marker date="1733335082996" expanded="true" signature="106:167" ph="Select * Fro... categories" />
+            <marker date="1733335082996" expanded="true" signature="1149:1234" ph="Select resul... tbl_loterianacional" />
+            <marker date="1733335082996" expanded="true" signature="1574:1710" ph="Select * Fro... tbl_loterianacional" />
+            <marker date="1733335082996" expanded="true" signature="1796:1890" ph="Select * Fro... predictions" />
+            <marker date="1733335082996" expanded="true" signature="5287:5412" ph="..." />
           </folding>
         </state>
       </provider>
@@ -904,37 +907,47 @@
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1160">
-          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="78" selection-end-column="66" />
+          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
           <folding>
-            <marker date="1729547518320" expanded="true" signature="95:136" ph="SELECT * FRO... categories" />
-            <marker date="1729547518320" expanded="true" signature="399:466" ph="SELECT * FRO... predictions" />
-            <marker date="1729547518320" expanded="true" signature="619:670" ph="SELECT * FRO... predictions" />
-            <marker date="1729547518320" expanded="true" signature="619:671" ph="SELECT * FRO... predictions" />
-            <marker date="1729547518320" expanded="true" signature="755:838" ph="SELECT * FRO... tbl_loterianacional" />
-            <marker date="1729547518320" expanded="true" signature="975:1042" ph="SELECT * FRO... tbl_loterianacional" />
-            <marker date="1729547518320" expanded="true" signature="1366:1488" ph="SELECT * FRO... tbl_loterianacional" />
-            <marker date="1729547518320" expanded="true" signature="1617:1695" ph="SELECT resul... tbl_loterianacional" />
-            <marker date="1729547518320" expanded="true" signature="9374:9435" ph="SELECT * FRO... faqs" />
+            <marker date="1733335081490" expanded="true" signature="95:136" ph="SELECT * FRO... categories" />
+            <marker date="1733335081490" expanded="true" signature="399:466" ph="SELECT * FRO... predictions" />
+            <marker date="1733335081490" expanded="true" signature="619:670" ph="SELECT * FRO... predictions" />
+            <marker date="1733335081490" expanded="true" signature="619:671" ph="SELECT * FRO... predictions" />
+            <marker date="1733335081490" expanded="true" signature="755:838" ph="SELECT * FRO... tbl_loterianacional" />
+            <marker date="1733335081490" expanded="true" signature="975:1042" ph="SELECT * FRO... tbl_loterianacional" />
+            <marker date="1733335081490" expanded="true" signature="1366:1488" ph="SELECT * FRO... tbl_loterianacional" />
+            <marker date="1733335081490" expanded="true" signature="1617:1695" ph="SELECT resul... tbl_loterianacional" />
+            <marker date="1733335081490" expanded="true" signature="6694:9461" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/all-category-history.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="78" column="50" lean-forward="false" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="50" />
-          <folding />
+        <state relative-caret-position="1080">
+          <caret line="54" column="50" lean-forward="false" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
+          <folding>
+            <marker date="1733335078770" expanded="true" signature="5888:6163" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1732712068956" expanded="true" signature="1526:1583" ph="Select id fr... pages" />
-            <marker date="1732712068956" expanded="true" signature="1730:1792" ph="Select id fr... categories" />
+            <marker date="1733335082757" expanded="true" signature="1526:1583" ph="Select id fr... pages" />
+            <marker date="1733335082757" expanded="true" signature="1730:1792" ph="Select id fr... categories" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contact-us.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="838" column="38" lean-forward="false" selection-start-line="838" selection-start-column="38" selection-end-line="838" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
