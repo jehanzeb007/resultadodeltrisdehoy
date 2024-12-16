@@ -23,6 +23,9 @@ if(isset($REQUEST_URI['1']) && !empty($REQUEST_URI['1']) && !validateDate($REQUE
     }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'contact-us'){
         include ('contact-us.php');
         exit;
+        }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'author'){
+        include ('author.php');
+        exit;
     }elseif(isset($REQUEST_URI['1']) && $REQUEST_URI['1'] == 'history-new'){
         include ('history_new.php');
         exit;

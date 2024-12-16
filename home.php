@@ -48,7 +48,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-        <div class="date-main">Tris - <?=_date($date)?> | <a style="color: white;" href="#"><i class="fab fa-google-play"></i> GooglePlay</a></div>
+        <div class="date-main"> <h1 style="display: inline; margin: 0; font-size:15px;">Tris - <?=_date($date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a></div>
         <div class="row content-block">
             <section class="col-content">
                 <?php
@@ -78,7 +78,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
                                     --><?php /*} */?>
                                     </div></div></div></div></div>
                 <?php } ?>
-                <div class="button-row" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><a href="https://resultadodeltrisdehoy.com/historico-tris" style="flex:1;text-align:center;padding:10px;background-color:#005B8A;color:white;border:none;border-radius:5px;text-decoration:none;font-size:16px;">Sorteos Anteriores</a><a href="https://resultadodeltrisdehoy.com/generador-de-numeros-del-tris" style="flex:1;text-align:center;padding:10px;background-color:#dc3545;color:white;border:none;border-radius:5px;text-decoration:none;font-size:14px;">Generar número</a><a href="https://resultadodeltrisdehoy.com/comprobador-de-billetes" style="flex:1;text-align:center;padding:10px;background-color:#1653BB;color:white;border:none;border-radius:5px;text-decoration:none;font-size:16px;">Comprobador de billetes</a></div><div class="clear mb20"></div><div class="row content-block dark"><div class="date-chooser flex-grow-1"><h2><?=_translate('first-heading')?></h2></div></div><div class="text-heading"><?=_translate('below-results')?></div></section></div>
+                <div class="clear mb20"></div><div class="row content-block dark"><div class="date-chooser flex-grow-1"><h2><?=_translate('first-heading')?></h2></div></div><div class="text-heading"><?=_translate('below-results')?></div></section></div>
 
         <?php foreach($results_array as $row_data){
             $result_numbers = json_decode($row_data['result_numbers'],1);
@@ -148,7 +148,6 @@ $result_results_code=mysqli_query($con,$query_result_code);
                 </div>
             </div>
         <?php } ?>
-
         <?php $query_faq = "SELECT * FROM faqs WHERE page = 'page__Home' order by id desc";
         $result_faq = mysqli_query($con, $query_faq);
         include 'includes/faq.php';?>

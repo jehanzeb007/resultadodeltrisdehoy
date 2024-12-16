@@ -14,7 +14,7 @@ html {
     padding: 0;
 }
 .col-top-ad .ad-container {
-    margin-top: 20px !important;
+    margin-top: 5px !important;
 }
 .ad-container.top-ad-container {
     margin-bottom: 0 !important;
@@ -91,6 +91,32 @@ html {
 .smartbanner-show .sport-ticker-navigation {
     top: 130px;
 }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.image-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.centered-image {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
 h1:first-child,
 h2:first-child {
     margin-top: 2px;

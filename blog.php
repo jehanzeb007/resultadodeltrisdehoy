@@ -121,7 +121,8 @@ setlocale(LC_TIME, 'es_MX.UTF-8');
 </head>
 <body>
 <div class="wrap">
-    <?php include 'includes/nav.php'; ?>
+    <?php include 'includes/nav.php'; 
+    include'breadcrums.php';?>
     <div class="container">
         <div class="row">
         <div class="row content-block">

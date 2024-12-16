@@ -115,12 +115,131 @@ $meta_description = $row_blog['meta_description'];
         min-width: 100%; 
     }
 }
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Merge borders for a clean look */
+    text-align: left; /* Align text to the left */
+    font-size: 14px; /* Adjust font size */
+    background-color: rgb(191, 237, 210); /* Table background */
+    border: 1px solid rgb(22, 145, 121); /* Table border color */
+}
+
+/* Table Header */
+th {
+    background-color: rgb(22, 145, 121); /* Header background */
+    color: #fff; /* Header text color */
+    padding: 10px; /* Add spacing in header cells */
+    text-transform: uppercase; /* Capitalize header text */
+    border: 1px solid rgb(22, 145, 121); /* Header border */
+}
+
+/* Table Rows */
+td {
+    padding: 8px; /* Add spacing in cells */
+    border: 1px solid rgb(22, 145, 121); /* Cell border */
+    color: #333; /* Cell text color */
+}
+
+/* Zebra Striping */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for alternate rows */
+}
+
+/* Hover Effect */
+tr:hover {
+    background-color: #e0f7e9; /* Highlight row on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+    th, td {
+        padding: 6px; /* Reduce padding */
+    }
+}
+/* General Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; /* Bold text for emphasis *
+    color: #2c3e50; /* Neutral dark color for readability */
+    margin: 20px 0; /* Add spacing around headings */
+    line-height: 1.4; /* Improve readability for multiple lines */
+    text-align: left; /* Default alignment */
+}
+
+/* Specific Heading Styles */
+h1 {
+    font-size: 18px; /* Largest heading size */
+    color: #0275d8; /* Custom color for H1 */
+    text-transform: uppercase; /* Capitalize all letters */
+}
+
+h2 {
+    font-size: 16px;
+    color: #2f8a11; /* Custom color for H2 */
+    text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+h3 {
+    font-size: 16px;
+    color: #d9534f; /* Custom color for H3 */
+}
+
+h4 {
+    font-size: 16px;
+    color: #5bc0de; /* Custom color for H4 */
+    font-style: italic; /* Add italic for a softer look */
+}
+
+h5 {
+    font-size: 16px;
+    color: #f0ad4e; /* Custom color for H5 */
+}
+
+h6 {
+    font-size: 16px;
+    color: #6c757d; /* Subtle color for H6 */
+    text-transform: lowercase; /* Lowercase text for differentiation */
+}
+
+/* Hover Effect */
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    color: #01447e; /* Change color on hover */
+    cursor: pointer; /* Indicate it's clickable */
+    text-decoration: underline; /* Add underline for hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 16px; /* Scale down for smaller screens */
+    }
+    h2 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    h6 {
+        font-size: 16px;
+    }
+}
+
 
     </style>
 </head>
 <body>
     <div class="wrap">
-        <?php include 'includes/nav.php'; ?>
+        <?php include 'includes/nav.php'; 
+        include'breadcrums.php';?>
         <div class="container">
             <div class="row content-block">
                 <div class="blog_inn">

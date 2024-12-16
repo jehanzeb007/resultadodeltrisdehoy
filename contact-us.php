@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Contacto US | Resultadodeltrisdehoy.com';
-$page_meta  = '';
+$page_meta  = '<meta name="description" content="Si desea anunciarse con nosotros o necesita alguna información, envíe un correo electrónico a nuestro encantador gerente aloracarl@gmail.com.">';
 
 if(isset($_POST)){
     if($_POST['type'] == 'contact_us'){
@@ -801,19 +801,19 @@ body {
         <div class="responsive-container-block" id="i2cbk">
             <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12">
                 <p class="text-blk input-title">NOMBRE DE PILA</p>
-                <input class="input" name="name" placeholder="Please enter your name...">
+                <input class="input" name="name" placeholder="Por favor ingresa tu nombre...">
             </div>
             <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12">
                 <p class="text-blk input-title">CORREO ELECTRÓNICO</p>
-                <input class="input" name="email" type="email" placeholder="Please enter your email...">
+                <input class="input" name="email" type="email" placeholder="Por favor ingrese su correo electrónico...">
             </div>
             <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12">
                 <p class="text-blk input-title">NÚMERO DE TELÉFONO</p>
-                <input class="input" name="phone" placeholder="Please enter your phone number...">
+                <input class="input" name="phone" placeholder="Por favor introduce tu número de teléfono...">
             </div>
             <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12">
                 <p class="text-blk input-title">¿QUÉ TIENES EN MENTE?</p>
-                <textarea class="textinput" name="message" placeholder="Please enter your query..."></textarea>
+                <textarea class="textinput" name="message" placeholder="Por favor ingrese su consulta..."></textarea>
             </div>
         </div>
         <button class="submit-btn" type="button" onclick="window.location.href='#'">Entregar</button>

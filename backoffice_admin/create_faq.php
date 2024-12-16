@@ -103,7 +103,7 @@ while($row_category = mysqli_fetch_array($result_categories)){
                 <a href="index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="faqs.php">Faqs</a>
+                <a href="create_faq.php">Faqs</a>
             </li>
             <li class="breadcrumb-item active">Create Faq</li>
         </ol>

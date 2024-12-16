@@ -122,8 +122,10 @@ while ($row_lang_content = mysqli_fetch_array($result_lang_content)){
             <li class="breadcrumb-item active">Update Page</li>
         </ol>
         <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-table"></i> Update Page</div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+    <span><i class="fa fa-table"></i> Update Page</span>
+    <button type="button" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 14px;" onclick="redirectToSlug()">Visit Current Page</button>
+          </div>
             <div class="card-body">
                 <div class="card-body">
                     <form method="post" action="" enctype="multipart/form-data">
@@ -200,3 +202,20 @@ while ($row_lang_content = mysqli_fetch_array($result_lang_content)){
 </body>
 
 </html>
+<script>
+    function redirectToSlug() {
+        // Get the base URL of the site (replace with your actual base URL if needed)
+        const baseUrl = 'https://resultadodeltrisdehoy.com';
+
+        // Get the slug dynamically from the query parameter or other logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug'); // Assuming 'slug' is part of the URL
+
+        // Open the formatted URL in a new tab
+        if (slug) {
+            window.open(`${baseUrl}/${slug}`, '_blank');
+        } else {
+            alert('Slug not found!');
+        }
+    }
+</script>
