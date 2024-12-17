@@ -14,6 +14,13 @@ if(!empty($row_page) && isset($row_page['slug']) && !empty($row_page['slug'])){
 $page_title = $row_page['title'];
 $page_meta  = $row_page['meta_tags'];
 $meta_description = $row_page['meta_description'];
+$htmlContent = $row_page['long_desc'];
+$firstImgSrc = '';
+if (!empty($htmlContent)) {
+    $dom = new DOMDocument();
+    @$dom->loadHTML($htmlContent);
+    $firstImgSrc = $dom->getElementsByTagName('img')->item(0)?->getAttribute('src') ?? '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="es-MX">
@@ -23,7 +30,7 @@ $meta_description = $row_page['meta_description'];
         /* Parent container styles for Flexbox centering */
 .text-heading {
     display: flex; /* Enables flexbox */
-    justify-content: center; /* Horizontally centers the child */
+    /* justify-content: center;  */
     align-items: center; /* Vertically centers the child (if needed) */
     flex-wrap: wrap; /* Ensures content wraps if necessary */
 }
@@ -90,6 +97,7 @@ ol {
     margin: 10px 0 20px 40px; /* Add consistent spacing around the list */
     padding-left: 0; /* Remove default padding */
     list-style: none; /* Remove default numbering */
+    width: 100%;
 }
 
 /* List Item Styling */
@@ -240,7 +248,9 @@ tr:hover {
         padding: 6px; /* Reduce padding */
     }
 }
-
+p {
+    width: 100%;
+}
 
 
     </style>
