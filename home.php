@@ -48,7 +48,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-        <div class="date-main"> <h1 style="display: inline; margin: 0; font-size:15px;">Tris - <?=_date($date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a></div>
+        <div class="date-main"><h1 style="display: inline; margin: 0; font-size:16px;">Tris - <?=_date($date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a></div>
         <div class="row content-block">
             <section class="col-content">
                 <?php
@@ -78,7 +78,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
                                     --><?php /*} */?>
                                     </div></div></div></div></div>
                 <?php } ?>
-                <div class="clear mb20"></div><div class="row content-block dark"><div class="date-chooser flex-grow-1"><h2><?=_translate('first-heading')?></h2></div></div><div class="text-heading"><?=_translate('below-results')?></div></section></div>
+                <div class="clear mb20"></div><div class="date-main"><h2><?=_translate('first-heading')?></h2></div><div class="text-heading"><?=_translate('tris-de-hoy-mx')?></div></section></div>
 
         <?php foreach($results_array as $row_data){
             $result_numbers = json_decode($row_data['result_numbers'],1);

@@ -58,12 +58,12 @@ $page_title = '404';
 
                                 <div class="contant_box_404">
                                     <h3 class="h2">
-                                        Look like you're lost
+                                        Parece que estás perdido
                                     </h3>
 
-                                    <p>the page you are looking for not avaible!</p>
+                                    <p>¡La página que estás buscando no está disponible!</p>
 
-                                    <a href="<?=getUrl()?>" class="link_404">Go to Home</a>
+                                    <a href="https://resultadodeltrisdehoy.com/blog" class="link_404">Información de la visita</a>
                                 </div>
                             </div>
                         </div>

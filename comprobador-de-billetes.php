@@ -34,7 +34,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-        <div class="date-main"><h2 style="font-size:18px;">&#10070; Verificador de Números de Boletos Tris</h2></div>
+        <div class="date-main"><h1 style="font-size:18px;">&#10070; Verificador de Números de Boletos Tris</h1></div>
         <div class="row content-block" id="draw-setion">
             <div class="text-heading">
                 <p><?=_translate('tris-ticket')?></p>
@@ -136,7 +136,11 @@ $result_results_code=mysqli_query($con,$query_result_code);
                 </div>
             </section>
         </div>
+         <div class="row content-block">
+         <?=_translate('ticket')?>
+        </div>
     </div>
+
 </div>
 <?php include 'includes/footer.php'; ?>
 <script>

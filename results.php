@@ -116,7 +116,7 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
 <div class="wrap">
     <?php include 'includes/nav.php'; ?>
         <div class="container">
-        <div class="date-main"><h1><?=_cat_translate('results',$category_info['id'])?></h1></div>
+        <div class="date-main"><h1 style="display: inline; margin: 0; font-size:16px;"><?=_cat_translate('results',$category_info['id'])?></h1></div>
         <div class="row content-block">
             <section class="col-content">
                 <?php while ($row_data=mysqli_fetch_array($result_results)){
@@ -163,7 +163,7 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
               <div class="button-row" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
                     <!-- Button -->
                     <a href="<?=setUrl($category_info['slug']).'/historico'?>" style="flex: 1; text-align: center; padding: 10px; background-color: #02acff; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 16px;">
-                        Sorteos Anteriores</a>
+                        Histórico</a>
                     <a href="https://resultadodeltrisdehoy.com/generador-de-numeros-del-tris" style="flex: 1; text-align: center; padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 5px; text-decoration: none; font-size: 14px;">
                         Generar número</a></div>
               <?php if(!empty($hasDate)){?>
@@ -173,19 +173,12 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                     <?php }?>
             </section>
         </div>
-         <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-               <h2><?=_cat_translate('schedule',$category_info['id'])?></h2>
-            </div> 
-        </div>
+                <div class="date-main"> <h2 style="display: inline; margin: 0; font-size:16px;"><?=_cat_translate('schedule',$category_info['id'])?></h2></div>
         <div class="row content-block">
+            <p><?=_cat_translate('schedule-txt',$category_info['id'])?></p>
             <p><?=_cat_translate('schedule-table',$category_info['id'])?></p>
         </div>
-        <div class="row content-block dark">
-            <div class="date-chooser flex-grow-1">
-               <h2><?=_cat_translate('hot-and-cold-number',$category_info['id'])?></h2>
-            </div> 
-        </div>
+        <div class="date-main"><h2 style="display: inline; margin: 0; font-size:16px;"><?=_cat_translate('hot-and-cold-number',$category_info['id'])?></h2></div>
         <div class="row content-block">
             <?php if(!empty($hasDate)){?>
                         <p><?=str_replace('##CATEGORY_NAME##',$category_info['name'],str_replace('##DATE##',$REQUEST_URI[2],_translate('result-post-hot-and-cold-ball')))?></p>
@@ -199,7 +192,7 @@ $plain_name = trim(str_replace('Tris','',$category_info['name']));
                             <div class="game-info">
                                 <div class="card hotColdCard" style="background: #f6cfcf;">
                                     <div class="card-header">
-                                        <h3 style="display: inline; font-weight: bold;"><i class="fas fa-fire" aria-hidden="true"></i> Caliente Tris Mediodía</h3>
+                                        <h3 style="display: inline; font-weight: bold;"><i class="fas fa-fire" aria-hidden="true"></i> Caliente <?=$category_info['name']?></h3>
                                         <a style="float: right" href="<?=setUrl($category_info['slug'].'/numeros-calientes')?>">Más números</a>
                                     </div>
                                     <div class="card-body" style="overflow-x:auto;">
