@@ -9,6 +9,7 @@ while($row_cat=mysqli_fetch_array($result_cat_data)){
 }
 $REQUEST_URI=explode('/',$_SERVER['REQUEST_URI']);
 $date=date('Y-m-d');
+$previous_date = date('Y-m-d', strtotime('-1 day'));
 
 $query_predictions="SELECT * FROM predictions WHERE date='".$date."' ORDER BY time DESC";
 $result_predictions=mysqli_query($con,$query_predictions);
@@ -16,13 +17,20 @@ if(mysqli_num_rows($result_predictions)==0&&$date==date('Y-m-d')){
     $query_predictions="SELECT * FROM predictions ORDER BY time DESC LIMIT 5";
     $result_predictions=mysqli_query($con,$query_predictions);
 }
-$query_results="SELECT * FROM tbl_loterianacional WHERE result_date='".$date."' ORDER BY cat_id ASC";
-$result_results=mysqli_query($con,$query_results);
-if(mysqli_num_rows($result_results)==0&&$date==date('Y-m-d')){
-    $query_results="SELECT * FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5";
-    $result_results=mysqli_query($con,$query_results);
+$query_results = "SELECT * FROM tbl_loterianacional WHERE result_date='".$date."' ORDER BY cat_id ASC";
+$result_results= mysqli_query($con,$query_results);
+if(mysqli_num_rows($result_results) == 0 && $date == date('Y-m-d')) {
+    $query_results = "SELECT * FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5";
+    $result_results = mysqli_query($con,$query_results);
 }
-$check_numbers='false';
+$previousQuery = "SELECT * FROM tbl_loterianacional WHERE result_date='".$previous_date."' ORDER BY cat_id ASC LIMIT 5";
+$previousResults = mysqli_query($con, $previousQuery);
+
+if (mysqli_num_rows($previousResults) == 0) {
+    $previousQuery = "SELECT * FROM tbl_loterianacional WHERE result_date NOT IN (SELECT result_date FROM (SELECT result_date FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5) AS subquery) ORDER BY result_date DESC LIMIT 5";
+    $previousResults = mysqli_query($con, $previousQuery); 
+}
+$check_numbers = 'false';
 if(isset($_POST)){
     if($_POST['type']=='check-number'){
         $check_numbers='true';
@@ -48,7 +56,9 @@ $result_results_code=mysqli_query($con,$query_result_code);
 <div class="wrap">
     <?php include 'includes/nav.php';?>
     <div class="container">
-        <div class="date-main"><h1 style="display: inline; margin: 0; font-size:16px;">Tris - <?=_date($date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a></div>
+        <div class="date-main">
+            <h1 style="display: inline; margin: 0; font-size:16px;">Tris - <?=_date($date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a>
+        </div>
         <div class="row content-block">
             <section class="col-content">
                 <?php
@@ -57,29 +67,93 @@ $result_results_code=mysqli_query($con,$query_result_code);
                     $results_array[] = $row_data;
                     $result_numbers = json_decode($row_data['result_numbers'],1); ?>
                     <div class="game-block past">
-                        <div class="game-info"><div class="top-section"><div class="inner-top"><div class="game-logo">
-                                        <a href="<?=setUrl($categories[$row_data['cat_id']]['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a></div>
-                                    <div class="content"><a class="game-title" href="<?=setUrl($categories[$row_data['cat_id']]['slug'])?>" style="border: 1px solid #005B8A; padding: 3px; border-radius: 10px;"> Resultado <?=$categories[$row_data['cat_id']]['name']?></a>
-                                        <!--<span class="date"> <?/*=_date($row_data['result_date'])*/?></span>--></div></div>
-                                <div class="clear mb20"></div><div class="game-details"><div class="game-scores ball-mode">
+                        <div class="game-info">
+                            <div class="top-section">
+                                <div class="inner-top">
+                                    <div class="game-logo">
+                                        <a href="<?=setUrl($categories[$row_data['cat_id']]['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a>
+                                    </div>
+                                    <div class="content">
+                                        <a class="game-title" href="<?=setUrl($categories[$row_data['cat_id']]['slug'])?>" style="border: 1px solid #005B8A; padding: 3px; border-radius: 10px;"> Resultado <?=$categories[$row_data['cat_id']]['name']?></a>
+                                    </div>
+                                </div>
+                                <div class="clear mb20"></div>
+                                <div class="game-details">
+                                    <div class="game-scores ball-mode">
                                         <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
                                             <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>
                                         <?php } ?>
-                                        </span><?php if($row_data['result_multiplier'] == 'SI'){?>
+                                        </span>
+                                        <?php if($row_data['result_multiplier'] == 'SI'){?>
                                             <div class="circle-plicador" style="background: darkblue">
-                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-check"></i></div></div>
-                                        <?php } ?>
-                                        <?php if($row_data['result_multiplier'] == 'NO'){?>
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-check"></i></div>
+                                            </div>
+                                        <?php }
+                                        if($row_data['result_multiplier'] == 'NO'){?>
                                             <div class="circle-plicador" style="background: #dc3545;">
-                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-times"></i></div></div>
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-times"></i></div>
+                                            </div>
                                         <?php } ?>
-                                        <?php /*if($row_data['score'] != ''){*/?><!--
-<span class="score special3"><?/*=$row_data['score']*/?></span>
-                                    --><?php /*} */?>
-                                    </div></div></div></div></div>
-                <?php } ?>
-                <div class="clear mb20"></div><div class="date-main"><h2><?=_translate('first-heading')?></h2></div><div class="text-heading"><?=_translate('tris-de-hoy-mx')?></div></section></div>
-
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php }
+                if (mysqli_num_rows($previousResults) > 1) { ?>
+            </section>
+        </div>
+        <div class="date-main">
+            <h1 style="display: inline; margin: 0; font-size:16px;">Tris - <?=_date($previous_date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a>
+        </div>
+        <div class="row content-block">
+            <section class="col-content">
+                <?php
+                while ($row_data=mysqli_fetch_array($previousResults)){
+                    // $results_array[] = $row_data;
+                    $result_numbers = json_decode($row_data['result_numbers'],1); ?>
+                    <div class="game-block past">
+                        <div class="game-info">
+                            <div class="top-section">
+                                <div class="inner-top">
+                                    <div class="game-logo">
+                                        <a href="<?=setUrl($categories[$row_data['cat_id']]['slug']).'/'.urlDate($row_data['result_date'])?>"><span class="session-badge">#<?=$row_data['result_code']?></span></a>
+                                    </div>
+                                    <div class="content">
+                                        <a class="game-title" href="<?=setUrl($categories[$row_data['cat_id']]['slug'])?>" style="border: 1px solid #005B8A; padding: 3px; border-radius: 10px;"> Resultado <?=$categories[$row_data['cat_id']]['name']?></a>
+                                    </div>
+                                </div>
+                                <div class="clear mb20"></div>
+                                <div class="game-details">
+                                    <div class="game-scores ball-mode">
+                                        <?php foreach ($result_numbers as $key=>$result_number){ if($key>=5)continue;?>
+                                            <span class="score" style="<?=$btns_style?>"><?=$result_number?></span>
+                                        <?php } ?>
+                                        </span>
+                                        <?php if($row_data['result_multiplier'] == 'SI'){?>
+                                            <div class="circle-plicador" style="background: darkblue">
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-check"></i></div>
+                                            </div>
+                                        <?php }
+                                        if($row_data['result_multiplier'] == 'NO'){?>
+                                            <div class="circle-plicador" style="background: #dc3545;">
+                                                <div class="plicador-text">MULTI<br>PLICADOR<br><i style="font-size: 10px;" class="fa fa-times"></i></div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php }
+                } ?>
+                <div class="clear mb20"></div>
+                <div class="date-main">
+                    <h2><?=_translate('first-heading')?></h2>
+                </div>
+                <div class="text-heading"><?=_translate('tris-de-hoy-mx')?></div>
+            </section>
+        </div>
         <?php foreach($results_array as $row_data){
             $result_numbers = json_decode($row_data['result_numbers'],1);
             $number_string = '';
