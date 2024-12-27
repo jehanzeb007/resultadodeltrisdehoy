@@ -23,12 +23,39 @@ if(mysqli_num_rows($result_results) == 0 && $date == date('Y-m-d')) {
     $query_results = "SELECT * FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5";
     $result_results = mysqli_query($con,$query_results);
 }
-$previousQuery = "SELECT * FROM tbl_loterianacional WHERE result_date='".$previous_date."' ORDER BY cat_id ASC LIMIT 5";
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+$temp_rows = [];
+$excluded_dates = array();
+if (mysqli_num_rows($result_results) > 0) {
+    while ($row = mysqli_fetch_array($result_results)) {
+        $temp_rows[] = $row;
+        if (!in_array("'" . $row['result_date'] . "'", $excluded_dates)) {
+            $excluded_dates[] = "'" . $row['result_date'] . "'";
+        }
+    }
+    $result_results = $temp_rows;
+}
+$excluded_dates_list = implode(',', $excluded_dates);
+$previousQuery = "SELECT * FROM tbl_loterianacional 
+                  WHERE result_date = '" . $previous_date . "' 
+                  AND result_date NOT IN (" . $excluded_dates_list . ") 
+                  ORDER BY cat_id ASC LIMIT 5";
 $previousResults = mysqli_query($con, $previousQuery);
 
 if (mysqli_num_rows($previousResults) == 0) {
-    $previousQuery = "SELECT * FROM tbl_loterianacional WHERE result_date NOT IN (SELECT result_date FROM (SELECT result_date FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5) AS subquery) ORDER BY result_date DESC LIMIT 5";
-    $previousResults = mysqli_query($con, $previousQuery); 
+    $previousQuery = "SELECT * FROM tbl_loterianacional 
+                      WHERE result_date NOT IN (
+                          SELECT result_date FROM (
+                              SELECT result_date FROM tbl_loterianacional 
+                              ORDER BY result_date DESC LIMIT 5
+                          ) AS subquery 
+                          UNION 
+                          SELECT DISTINCT result_date FROM tbl_loterianacional 
+                          WHERE result_date IN (" . $excluded_dates_list . ")
+                      ) 
+                      ORDER BY result_date DESC LIMIT 5";
+    $previousResults = mysqli_query($con, $previousQuery);
 }
 $check_numbers = 'false';
 if(isset($_POST)){
@@ -63,7 +90,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
             <section class="col-content">
                 <?php
                 $results_array = [];
-                while ($row_data=mysqli_fetch_array($result_results)){
+                foreach ($result_results as $row_data){
                     $results_array[] = $row_data;
                     $result_numbers = json_decode($row_data['result_numbers'],1); ?>
                     <div class="game-block past">
@@ -100,7 +127,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
                         </div>
                     </div>
                 <?php }
-                if (mysqli_num_rows($previousResults) > 1) { ?>
+                if (mysqli_num_rows($previousResults) >= 1) { ?>
             </section>
         </div>
         <div class="date-main">

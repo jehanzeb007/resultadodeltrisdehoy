@@ -251,6 +251,10 @@ tr:hover {
 p {
     width: 100%;
 }
+.text-heading.topheading {
+    text-align: center;
+    justify-content: center;
+}
 
 
     </style>
@@ -269,7 +273,7 @@ p {
                     Ads
                 </div>-->
                 <div class="clear mb20"></div>
-                <div class="text-heading">
+                <div class="text-heading topheading">
                     <h1><?=$page_title?></h1>
                 </div>
             </section>
