@@ -19,24 +19,7 @@ $queryResponse = mysqli_query($con, $resultsQuery);
 <html lang="es-MX">
 <head>
     <?php include 'includes/head.php';?>
-    <style>
-        .numbers-his-table {
-            width: 100%;
-            margin: 0 auto;
-            font-size: 20px;
-        }
-        .numbers-his-table td{
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        /* .top-link-white {
-            color: white;
-        } */
-        .top-link-white.active {
-            color: #4CAF50;
-        }
-        
-    </style>
+    <style>.numbers-his-table{width:100%;margin:0 auto;font-size:20px;}.numbers-his-table td{border:1px solid #ddd;text-align:center;}.top-link-white.active{color:#4CAF50;}</style>
 </head>
 <body>
 <div class="wrap">

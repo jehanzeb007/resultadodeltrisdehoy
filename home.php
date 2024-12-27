@@ -104,7 +104,7 @@ $result_results_code=mysqli_query($con,$query_result_code);
             </section>
         </div>
         <div class="date-main">
-            <h1 style="display: inline; margin: 0; font-size:16px;">Tris - <?=_date($previous_date)?></h1> | <a style="color: white;" font-size:15px; href="#"><i class="fab fa-google-play"></i> GooglePlay</a>
+            <h2 style="display: inline; margin: 0; font-size:16px;">Resultados Del Tris De Ayer </h2>
         </div>
         <div class="row content-block">
             <section class="col-content">
