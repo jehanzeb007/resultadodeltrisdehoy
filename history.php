@@ -10,13 +10,13 @@ if(empty($categoryInfo)){
 }
 $anno = isset($_GET['anno']) ? $_GET['anno'] : null;
 $current_year = date('Y');
-$yearNumber = isset($_GET['anno']) && is_numeric($_GET['anno']) && $_GET['anno'] >= 1900 && $_GET['anno'] <= $current_year ? intval($_GET['anno']) : 2024;
+$yearNumber = isset($_GET['anno']) && is_numeric($_GET['anno']) && $_GET['anno'] >= 1900 && $_GET['anno'] <= $current_year ? intval($_GET['anno']) : '';
 $page_title = $categoryInfo['history_meta_title'];
 $meta_description = $categoryInfo['history_meta_desc'];
 $page_meta  = '';
 $manifest = 'manifest-'.$categoryInfo['slug'];
 
-$resultsQuery = "SELECT DAY(result_date) as day_number, result_date, result_numbers,result_code FROM tbl_loterianacional WHERE YEAR(result_date) = $yearNumber AND cat_id = '".$categoryInfo['id']."'  GROUP BY result_date ORDER BY result_date DESC";
+$resultsQuery = "SELECT DAY(result_date) as day_number, result_date, result_numbers,result_code FROM tbl_loterianacional WHERE ".(!empty($yearNumber) ? "YEAR(result_date) = ".$yearNumber." AND" : "")." cat_id = '".$categoryInfo['id']."'  GROUP BY result_date ORDER BY result_date DESC";
 $queryResponse = mysqli_query($con, $resultsQuery);
 $numRows = mysqli_num_rows($queryResponse);
 ?>

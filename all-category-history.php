@@ -3,7 +3,7 @@
 //echo '<pre>';print_r($REQUEST_URI);exit;
 $anno = isset($_GET['anno']) ? $_GET['anno'] : null;
 $current_year = date('Y');
-$yearNumber = isset($_GET['anno']) && is_numeric($_GET['anno']) && $_GET['anno'] >= 1900 && $_GET['anno'] <= $current_year ? intval($_GET['anno']) : 2024;
+$yearNumber = isset($_GET['anno']) && is_numeric($_GET['anno']) && $_GET['anno'] >= 1900 && $_GET['anno'] <= $current_year ? intval($_GET['anno']) : '';
 
 $page_title = $settings['historico_title'];
 $page_meta = $settings['historico_meta'];
@@ -11,7 +11,7 @@ $categoryList = "Select id,name From categories order by id asc";
 $categoryResult = mysqli_query($con, $categoryList);
 
 // Query results for the selected year
-$resultsQuery = "SELECT DAY(result_date) as day_number, result_date FROM tbl_loterianacional WHERE YEAR(result_date) = $yearNumber GROUP BY result_date ORDER BY result_date DESC";
+$resultsQuery = "SELECT DAY(result_date) as day_number, result_date FROM tbl_loterianacional ".(!empty($yearNumber) ? "WHERE YEAR(result_date) =". $yearNumber  : "")." GROUP BY result_date ORDER BY result_date DESC";
 $queryResponse = mysqli_query($con, $resultsQuery);
 ?>
 
