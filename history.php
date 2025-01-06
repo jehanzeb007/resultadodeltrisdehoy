@@ -16,7 +16,6 @@ $meta_description = $categoryInfo['history_meta_desc'];
 $page_meta  = '';
 $manifest = 'manifest-'.$categoryInfo['slug'];
 
-
 $resultsQuery = "SELECT DAY(result_date) as day_number, result_date, result_numbers,result_code FROM tbl_loterianacional WHERE YEAR(result_date) = $yearNumber AND cat_id = '".$categoryInfo['id']."'  GROUP BY result_date ORDER BY result_date DESC";
 $queryResponse = mysqli_query($con, $resultsQuery);
 $numRows = mysqli_num_rows($queryResponse);

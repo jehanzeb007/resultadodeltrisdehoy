@@ -23,6 +23,7 @@ if(mysqli_num_rows($result_results) == 0 && $date == date('Y-m-d')) {
     $query_results = "SELECT * FROM tbl_loterianacional ORDER BY result_date DESC LIMIT 5";
     $result_results = mysqli_query($con,$query_results);
 }
+
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 $temp_rows = [];

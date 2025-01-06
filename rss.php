@@ -11,7 +11,7 @@ $xml .= "<channel>".PHP_EOL;
 $xml .= "<title>".$page_title." | RSS</title>".PHP_EOL;
 $xml .= "<link>".$site_url."/rss</link>".PHP_EOL;
 $xml .= "<description></description>".PHP_EOL;
-$xml .= "<language>es</language>".PHP_EOL;
+$xml .= "<language>es-MX</language>".PHP_EOL;
 
 $query_cat_data = "Select * From categories order by id desc";
 $result_cat_data = mysqli_query($con, $query_cat_data);
