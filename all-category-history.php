@@ -106,7 +106,20 @@ $queryResponse = mysqli_query($con, $resultsQuery);
 </div>
 <?php include 'includes/footer.php';?>
 <script>
+function cleanUrl() {
+    let currentUrl = window.location.href;
+    let url = new URL(currentUrl);
+    let params = new URLSearchParams(url.search);
+    params.delete('page');
+    let newUrl = url.origin + url.pathname;
+    if (params.toString()) {
+        newUrl += '?' + params.toString();
+    }
 
+    return newUrl;
+}
+let cleanedUrl = cleanUrl();
+window.history.replaceState({}, document.title, cleanedUrl);
 </script>
 </body>
 
