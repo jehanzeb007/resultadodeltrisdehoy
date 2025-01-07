@@ -207,41 +207,42 @@ function webpConvert2($file, $compression_quality = 80)
     return false;
 }
 
-function generateSiteMap($lang_arr, $idexFollow,$con){
+function generateSiteMap($lang_arr, $idexFollow, $con){
     global $site_url;
     $urls = [];
-    /*System Urls Start*/
-    //echo '<pre>';print_r($lang_arr);exit;
+    $newsxml = '';
+
+    /* System Urls Start */
     foreach ($lang_arr as $lang){
         if($lang['status'] == '1'){
-            $urls[] = ['url'=>$site_url,'freq'=>'monthly','priority'=>'0.5'];
-            $urls[] = ['url'=>$site_url.'/blog','freq'=>'monthly','priority'=>'0.5'];
+            $urls[] = ['url'=>$site_url, 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>date('c')];
+            $urls[] = ['url'=>$site_url.'/blog', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>date('c')];
         }
     }
+    /* System Urls End */
 
-    /*System Urls End*/
-
-    /*Results,Prediction,hotnumbers,cold numbers URL Start*/
-
-    $newsxml = '<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">';
-
-    $query_categories = "Select * From categories order by sort_order desc";
+    /* Categories and Results Start */
+    $query_categories = "SELECT * FROM categories ORDER BY sort_order DESC";
     $result_categories = mysqli_query($con, $query_categories);
 
     while($row_category = mysqli_fetch_array($result_categories)){
+        $lastmod = isset($row_category['updated_at']) && !empty($row_category['updated_at']) ? date('c', strtotime($row_category['updated_at'])) : date('c');
 
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'],'freq'=>'monthly','priority'=>'0.5'];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/predicciones','freq'=>'monthly','priority'=>'0.5'];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-calientes','freq'=>'monthly','priority'=>'0.5'];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-frios','freq'=>'monthly','priority'=>'0.5'];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/historico','freq'=>'monthly','priority'=>'0.5'];
+        // Add URLs with different types for the same slug
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/predicciones', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-calientes', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-frios', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/historico', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
 
-        $query_results  = "Select result_date From tbl_loterianacional where cat_id = '".$row_category['id']."'";
+        // Fetch related results for this category
+        $query_results  = "SELECT result_date FROM tbl_loterianacional WHERE cat_id = '".$row_category['id']."'";
         $result_results = mysqli_query($con, $query_results);
-        $newsxml .= "";
+
         while($row_results = mysqli_fetch_array($result_results)){
+            $result_lastmod = isset($row_results['result_date']) && !empty($row_results['result_date']) ? date('c', strtotime($row_results['result_date'])) : date('c');
             $url_loc = $site_url.'/'.$row_category['slug'].'/'.urlDate($row_results['result_date']);
+
             $newsxml .= '<url>
                           <loc>'.$url_loc.'</loc>
                           <news:news>
@@ -253,59 +254,48 @@ function generateSiteMap($lang_arr, $idexFollow,$con){
                             <news:title>Resultados del '.$row_category['name'].' '._date($row_results['result_date']).' | Predicciones | Numeros Frios | Numeros Calientes</news:title>
                           </news:news>
                           </url>';
-            $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/'.urlDate($row_results['result_date']),'freq'=>'monthly','priority'=>'0.5'];
+
+            $urls[] = ['url'=>$url_loc, 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$result_lastmod];
         }
     }
-    $newsxml .= '</urlset>';
+    /* Categories and Results End */
 
-    /*Results,Prediction,hotnumbers,cold numbers URL end*/
-
-    /*Blogs URL Start*/
-    $query_blog = "Select * From blog order by id desc";
+    /* Blogs URLs Start */
+    $query_blog = "SELECT * FROM blog ORDER BY id DESC";
     $result_blog = mysqli_query($con, $query_blog);
+
     while($row_blog = mysqli_fetch_array($result_blog)){
-        $urls[] = ['url'=>$site_url.'/blog/'.$row_blog['slug'],'freq'=>'monthly','priority'=>'0.5'];
+        $lastmod = isset($row_blog['updated_at']) && !empty($row_blog['updated_at']) ? date('c', strtotime($row_blog['updated_at'])) : date('c');
+        $urls[] = ['url'=>$site_url.'/blog/'.$row_blog['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
     }
-    /*Blogs URL End*/
+    /* Blogs URLs End */
 
-    /*Pages URL Start*/
-    $query_page = "Select * From pages order by id desc";
+    /* Pages URLs Start */
+    $query_page = "SELECT * FROM pages ORDER BY id DESC";
     $result_page = mysqli_query($con, $query_page);
+
     while($row_pages = mysqli_fetch_array($result_page)){
-        $urls[] = ['url'=>$site_url.'/'.$row_pages['slug'],'freq'=>'monthly','priority'=>'0.5'];
+        $lastmod = !empty($row_pages['last_updated']) ? date('c', strtotime($row_pages['last_updated'])) : date('c');
+        $urls[] = ['url'=>$site_url.'/'.$row_pages['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
     }
-    /*Pages URL End*/
+    /* Pages URLs End */
 
-    /*categories URL Start*/
-    $query_categories = "Select * From categories order by id desc";
-    $result_categories = mysqli_query($con, $query_categories);
-    while($row_category = mysqli_fetch_array($result_categories)){
-        $urls[] = ['url' => $site_url.'/' . $row_category['slug'] . '/predicciones', 'freq' => 'monthly', 'priority' => '0.5'];
-        $urls[] = ['url' => $site_url.'/' . $row_category['slug'] . '/numeros-calientes', 'freq' => 'monthly', 'priority' => '0.5'];
-        $urls[] = ['url' => $site_url.'/' . $row_category['slug'] . '/numeros-frios', 'freq' => 'monthly', 'priority' => '0.5'];
-    }
-    /*apks URL End*/
-    /*echo '<pre>';
-    print_r($urls);exit;*/
+    /* Generate XML Sitemap */
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
-    $xml .= '<urlset xmlns="http://www.google.com/schemas/sitemap/0.84" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84 http://www.google.com/schemas/sitemap/0.84/sitemap.xsd">';
-    if($idexFollow == 'Yes'){
-        $xml .= '<url>
-        <loc>'.$site_url.'</loc>
-        <priority>1.00</priority>
-    </url>';
-        foreach ($urls as $url){
-            $xml .= '<url>
-                <loc>'.$url['url'].'</loc>
-                <changefreq>'.$url['freq'].'</changefreq>
-                <priority>'.$url['priority'].'</priority>
-            </url>';
-        }
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">';
+    foreach ($urls as $url){
+        $xml .= '<url>';
+        $xml .= '<loc>'.$url['url'].'</loc>';
+        $xml .= '<changefreq>'.$url['freq'].'</changefreq>';
+        $xml .= '<priority>'.$url['priority'].'</priority>';
+        $xml .= '<lastmod>'.$url['lastmod'].'</lastmod>';
+        $xml .= '</url>';
     }
-
+    $xml .= $newsxml;
     $xml .= '</urlset>';
+
+    /* Save Sitemap */
     file_put_contents('/var/www/www.resultadodeltrisdehoy.com/sitemap.xml', $xml);
-    file_put_contents('/var/www/www.resultadodeltrisdehoy.com/sitemap_news.xml', $newsxml);
 }
 
 function debug($arr,$exit=0){
