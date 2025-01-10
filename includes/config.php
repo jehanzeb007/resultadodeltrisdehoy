@@ -2,6 +2,7 @@
 ob_start("ob_gzhandler");
 error_reporting(0);
 session_start();
+date_default_timezone_set('America/Mexico_City');
 $site_url = 'https://resultadodeltrisdehoy.com';
 // $site_url = 'http://resultadodeltrisdehoy.loc';
 global $site_url;
@@ -212,9 +213,6 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
     $urls = [];
     $newsxml = '';
 
-    // Set the default time zone to Mexico City
-    date_default_timezone_set('America/Mexico_City');
-
     /* System Urls Start */
     foreach ($lang_arr as $lang){
         if($lang['status'] == '1'){
@@ -299,6 +297,8 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
     /* Save Sitemap */
     file_put_contents('/var/www/html/sites/resultadodeltrisdehoy.com/sitemap.xml', $xml);
 }
+
+
 function debug($arr,$exit=0){
     echo '<pre>';
     print_r($arr);
