@@ -81,6 +81,15 @@ function validateDate($date, $format = 'd-m-Y')
     // The Y ( 4 digits year ) returns TRUE for any integer with any number of digits so changing the comparison from == to === fixes the issue.
     return $d && $d->format($format) === $date;
 }
+function validateDateWithFormatedDate($date, $format = 'd-m-Y')
+{
+    $date = ucwords(strtolower($date));
+    $d = DateTime::createFromFormat($format, $date);
+    if ($d === false) {
+        return false;
+    }
+    return strtolower($d->format($format)) === $date;
+}
 function cleanParams($REQUEST_URI){
     foreach ($REQUEST_URI as $key=>$value){
         $value = explode('?',$value);
