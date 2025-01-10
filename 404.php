@@ -1,4 +1,5 @@
 <?php
+http_response_code(404);
 $page_title = '404';
 ?>
 <!DOCTYPE html>
