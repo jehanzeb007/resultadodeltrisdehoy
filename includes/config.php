@@ -221,7 +221,7 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
         }
     }
     /* System Urls End */
-
+    date_default_timezone_set('America/Mexico_City');
     /* Categories and Results Start */
     $query_categories = "SELECT * FROM categories ORDER BY sort_order DESC";
     $result_categories = mysqli_query($con, $query_categories);
