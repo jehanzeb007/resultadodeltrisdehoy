@@ -212,11 +212,14 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
     $urls = [];
     $newsxml = '';
 
+    // Set the default time zone to Mexico City
+    date_default_timezone_set('America/Mexico_City');
+
     /* System Urls Start */
     foreach ($lang_arr as $lang){
         if($lang['status'] == '1'){
-            $urls[] = ['url'=>$site_url, 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>date('c')];
-            $urls[] = ['url'=>$site_url.'/blog', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>date('c')];
+            $urls[] = ['url'=>$site_url, 'freq'=>'hourly', 'priority'=>'1', 'lastmod'=>date('c')];
+            $urls[] = ['url'=>$site_url.'/blog', 'freq'=>'weekly', 'priority'=>'0.5', 'lastmod'=>date('c')];
         }
     }
     /* System Urls End */
@@ -229,11 +232,11 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
         $lastmod = isset($row_category['updated_at']) && !empty($row_category['updated_at']) ? date('c', strtotime($row_category['updated_at'])) : date('c');
 
         // Add URLs with different types for the same slug
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/predicciones', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-calientes', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-frios', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
-        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/historico', 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'], 'freq'=>'hourly', 'priority'=>'1', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/predicciones', 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-calientes', 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/numeros-frios', 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/'.$row_category['slug'].'/historico', 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$lastmod];
 
         // Fetch related results for this category
         $query_results  = "SELECT result_date FROM tbl_loterianacional WHERE cat_id = '".$row_category['id']."'";
@@ -255,7 +258,7 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
                           </news:news>
                           </url>';
 
-            $urls[] = ['url'=>$url_loc, 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$result_lastmod];
+            $urls[] = ['url'=>$url_loc, 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$result_lastmod];
         }
     }
     /* Categories and Results End */
@@ -266,7 +269,7 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
 
     while($row_blog = mysqli_fetch_array($result_blog)){
         $lastmod = isset($row_blog['updated_at']) && !empty($row_blog['updated_at']) ? date('c', strtotime($row_blog['updated_at'])) : date('c');
-        $urls[] = ['url'=>$site_url.'/blog/'.$row_blog['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $urls[] = ['url'=>$site_url.'/blog/'.$row_blog['slug'], 'freq'=>'weekly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
     }
     /* Blogs URLs End */
 
@@ -275,8 +278,8 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
     $result_page = mysqli_query($con, $query_page);
 
     while($row_pages = mysqli_fetch_array($result_page)){
-        $lastmod = !empty($row_pages['last_updated']) ? date('c', strtotime($row_pages['last_updated'])) : date('c');
-        $urls[] = ['url'=>$site_url.'/'.$row_pages['slug'], 'freq'=>'monthly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
+        $lastmod = isset($row_pages['updated_at']) && !empty($row_pages['updated_at']) ? date('c', strtotime($row_pages['updated_at'])) : date('c');
+        $urls[] = ['url'=>$site_url.'/'.$row_pages['slug'], 'freq'=>'weekly', 'priority'=>'0.5', 'lastmod'=>$lastmod];
     }
     /* Pages URLs End */
 
@@ -293,11 +296,9 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
     }
     $xml .= $newsxml;
     $xml .= '</urlset>';
-
     /* Save Sitemap */
-    file_put_contents('/var/www/www.resultadodeltrisdehoy.com/sitemap.xml', $xml);
+    file_put_contents('/var/www/html/sites/resultadodeltrisdehoy.com/sitemap.xml', $xml);
 }
-
 function debug($arr,$exit=0){
     echo '<pre>';
     print_r($arr);

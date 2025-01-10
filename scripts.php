@@ -2,6 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+include('./includes/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     // Handle preflight requests
@@ -77,5 +78,70 @@ if(isset($_REQUEST) && isset($_REQUEST['type'])) {
         }
         echo json_encode(['success' => 'true', 'data' => $html]);
     }
+}
+function sendEmail() {
+    // SMTP Configuration
+    $host = 'sandbox.smtp.mailtrap.io';
+    $port = 587;
+    $username = '357750cdfe945e'; // Replace with your Mailtrap username
+    $password = 'dfc89730b2a1be';  // Replace with your Mailtrap password
+    $from = 'noreply@cronjob.com'; // Replace with a valid 'From' email
+    $to = 'babar.afzalmalik@gmail.com'; // Replace with your email address
+    $subject = 'Cron Job Email Test';
+    $message = "This is a test email to confirm the cron job is running successfully.\r\n";
+
+    // Create email headers
+    $headers = "From: <$from>\r\n";
+    $headers .= "To: <$to>\r\n";
+    $headers .= "Subject: $subject\r\n";
+    $headers .= "Content-Type: text/plain\r\n";
+
+    // Connect to SMTP server
+    $socket = fsockopen($host, $port, $errno, $errstr, 10);
+    if (!$socket) {
+        echo "Could not connect to SMTP server. Error: $errstr ($errno)";
+        return false;
+    }
+
+    // Read SMTP server response
+    function readSmtpResponse($socket) {
+        $response = '';
+        while ($line = fgets($socket, 515)) {
+            $response .= $line;
+            if (substr($line, 3, 1) == ' ') break;
+        }
+        return $response;
+    }
+
+    // Send SMTP commands
+    fwrite($socket, "EHLO $host\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "AUTH LOGIN\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, base64_encode($username) . "\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, base64_encode($password) . "\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "MAIL FROM: <$from>\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "RCPT TO: <$to>\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "DATA\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "$headers\r\n$message\r\n.\r\n");
+    readSmtpResponse($socket);
+
+    fwrite($socket, "QUIT\r\n");
+    fclose($socket);
+
+    echo "Test email sent successfully.";
+    return true;
 }
 ?>
