@@ -241,7 +241,7 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
         $result_results = mysqli_query($con, $query_results);
 
         while($row_results = mysqli_fetch_array($result_results)){
-            $result_lastmod = isset($row_results['result_date']) && !empty($row_results['result_date']) ? date('c', strtotime($row_results['result_date'])) : date('c');
+            /*$result_lastmod = isset($row_results['result_date']) && !empty($row_results['result_date']) ? date('c', strtotime($row_results['result_date'])) : date('c');
             $url_loc = $site_url.'/'.$row_category['slug'].'/'.urlDate($row_results['result_date']);
 
             $newsxml .= '<url>
@@ -256,7 +256,7 @@ function generateSiteMap($lang_arr, $idexFollow, $con){
                           </news:news>
                           </url>';
 
-            $urls[] = ['url'=>$url_loc, 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$result_lastmod];
+            $urls[] = ['url'=>$url_loc, 'freq'=>'daily', 'priority'=>'0.8', 'lastmod'=>$result_lastmod];*/
         }
     }
     /* Categories and Results End */
